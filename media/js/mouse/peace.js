@@ -1,7 +1,7 @@
 (function () {
 	var a_idx = 0;
 	window.onclick = function (event) {
-		var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善");
+		var a = new Array("💓WTY SC king💓","💓WTY nb king💓","💓WTY is the best💓","💓WTY AK IOI💓","💓WTY 吊打 ZSQ💓");
 
 		var heart = document.createElement("b");	//创建b元素
 		heart.onselectstart = new Function('event.returnValue=false');	//防止拖动
