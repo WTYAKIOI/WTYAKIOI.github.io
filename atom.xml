@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://wtyakioi.github.io</id>
     <title>zsq147258369</title>
-    <updated>2022-10-26T03:35:36.124Z</updated>
+    <updated>2022-10-26T10:59:27.462Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://wtyakioi.github.io"/>
     <link rel="self" href="https://wtyakioi.github.io/atom.xml"/>
@@ -10,6 +10,127 @@
     <logo>https://wtyakioi.github.io/images/avatar.png</logo>
     <icon>https://wtyakioi.github.io/favicon.ico</icon>
     <rights>All rights reserved 2022, zsq147258369</rights>
+    <entry>
+        <title type="html"><![CDATA[CF576E Painting Edges]]></title>
+        <id>https://wtyakioi.github.io/post/cf576e-painting-edges/</id>
+        <link href="https://wtyakioi.github.io/post/cf576e-painting-edges/">
+        </link>
+        <updated>2022-10-26T10:50:27.000Z</updated>
+        <content type="html"><![CDATA[<p><a href="https://www.luogu.com.cn/problem/CF576E"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mstyle mathcolor="deeppink"><mi>l</mi><mi>i</mi><mi>n</mi><mi>k</mi></mstyle></mrow><annotation encoding="application/x-tex">\color{deeppink}link</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;color:deeppink;">l</span><span class="mord mathdefault" style="color:deeppink;">i</span><span class="mord mathdefault" style="color:deeppink;">n</span><span class="mord mathdefault" style="margin-right:0.03148em;color:deeppink;">k</span></span></span></span></a></p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 个点，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span> 条有颜色的边，共 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span> 种颜色，一开始没有边有颜色，定义合法状态为保留每一颜色的所有的边，使得图是一个二分图。有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>q</mi></mrow><annotation encoding="application/x-tex">q</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">q</span></span></span></span> 次操作，判断每次操作后是否合法，若不合法则不操作。</p>
+<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi><mo separator="true">,</mo><mi>m</mi><mo separator="true">,</mo><mi>q</mi><mo>≤</mo><mn>5</mn><mo>×</mo><mn>1</mn><msup><mn>0</mn><mn>5</mn></msup><mo separator="true">,</mo><mi>k</mi><mo>≤</mo><mn>50</mn></mrow><annotation encoding="application/x-tex">n,m,q\le 5\times 10^5,k\le 50</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8304100000000001em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">n</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">m</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">q</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">5</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.008548em;vertical-align:-0.19444em;"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">5</span></span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">5</span><span class="mord">0</span></span></span></span>。</p>
+<p>首先，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span> 种颜色之间互不打扰，则可以对 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span> 种颜色分别讨论看是否合法。</p>
+<p>然后这道题就和 <a href="https://www.luogu.com.cn/problem/P5787">二分图</a> 十分像了，但是我们无法知道一条边的消失时间。</p>
+<p>若 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>u</mi><mo separator="true">,</mo><mi>v</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(u,v)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">u</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mclose">)</span></span></span></span> 这条边在 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi><mo separator="true">,</mo><mi>y</mi></mrow><annotation encoding="application/x-tex">x,y</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span></span></span></span> 时间都操作了一遍，那么在 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>x</mi><mo separator="true">,</mo><mi>y</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(x,y)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">x</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">y</span><span class="mclose">)</span></span></span></span> 的时间中，有两种情况：</p>
+<ul>
+<li>操作 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">x</span></span></span></span></li>
+<li>保留原来的颜色</li>
+</ul>
+<p>那么可以将每个操作的消失时间设为下一个同样操作的时间 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>−</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">-1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">−</span><span class="mord">1</span></span></span></span>，然后再判断是否可以插入之后再在线段树上标记信息。</p>
+<p>如何判断是否为二分图呢？</p>
+<p>首先，二分图可用染色来判断，那么可以把个点拆成两个，要把 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>u</mi><mo separator="true">,</mo><mi>v</mi></mrow><annotation encoding="application/x-tex">u,v</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">u</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span></span></span></span> 加入并查集时，将 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>s</mi><mi>u</mi></msub><mo separator="true">,</mo><msub><mi>t</mi><mi>v</mi></msub></mrow><annotation encoding="application/x-tex">s_u,t_v</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.80952em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">u</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03588em;">v</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 合并，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>t</mi><mi>u</mi></msub><mo separator="true">,</mo><msub><mi>s</mi><mi>v</mi></msub></mrow><annotation encoding="application/x-tex">t_u,s_v</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.80952em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">u</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03588em;">v</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 合并来保证 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>u</mi><mo separator="true">,</mo><mi>v</mi></mrow><annotation encoding="application/x-tex">u,v</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">u</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span></span></span></span> 不同色，如果 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>s</mi><mi>i</mi></msub><mo separator="true">,</mo><msub><mi>v</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">s_i,v_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:-0.03588em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 在同一集合中，则不是二分图。</p>
+<p>在加入 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>u</mi><mo separator="true">,</mo><mi>v</mi></mrow><annotation encoding="application/x-tex">u,v</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">u</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span></span></span></span> 时，若 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>s</mi><mi>u</mi></msub><mo separator="true">,</mo><msub><mi>s</mi><mi>v</mi></msub></mrow><annotation encoding="application/x-tex">s_u,s_v</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">u</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathdefault">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.151392em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03588em;">v</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 已经在一个并查集中，则是不合法的。</p>
+<p>还需要注意只有遍历到叶子节点时，才能加边和判断，且加边是不包括这个叶子的，因为若包含这个叶子，那在之后的几个叶子中可能加不到这个点的边，导致错误。若当前的颜色为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>，就代表这个边没有颜色，不用加。由于有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span> 个颜色，对于每一个点拆成 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn><mi>k</mi></mrow><annotation encoding="application/x-tex">2k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord">2</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span> 条边。</p>
+<p><strong>警钟敲烂</strong>：在加边的时候要写个函数，分开加，因为这题是合并两个并查集，所以可能在第一个并查集合并完后第二个并查集就不用合并了，两个点已在同一并查集中，再合并会死的瓜兮兮。<s>调了一下午</s></p>
+<p>时间是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>q</mi><mi>log</mi><mo>⁡</mo><mi>q</mi><mi>log</mi><mo>⁡</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(q\log q\log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03588em;">q</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">q</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>。</p>
+<pre><code class="language-cpp">#pragma GCC optimize(&quot;Ofast&quot;,&quot;inline&quot;)
+#include&lt;bits/stdc++.h&gt;
+using namespace std;
+const int N=2e6+50,M=1e6+500;
+
+struct node
+{
+	int u,v,c;
+}e[M];
+
+struct op
+{
+	int id,c;
+}p[M];
+
+struct wty
+{
+	int a,b,c;
+}st[M&lt;&lt;1];
+
+int n,m,k,q,fa[51][M],siz[51][M],la[M],top;
+vector&lt;int&gt;edge[N];
+
+#define ls (x&lt;&lt;1)
+#define rs (x&lt;&lt;1|1)
+#define mid ((l+r)&gt;&gt;1)
+
+inline void add(int x,int l,int r,int L,int R,int d)
+{
+	if(L&lt;=l&amp;&amp;R&gt;=r)return void(edge[x].push_back(d));
+	if(L&lt;=mid)add(ls,l,mid,L,R,d);
+	if(R&gt;mid)add(rs,mid+1,r,L,R,d);
+}
+
+inline int find(int x,int ty)
+{
+	return fa[ty][x]==x?x:find(fa[ty][x],ty);
+}
+
+inline void merge(int u,int v,int c)
+{
+	u=find(u,c),v=find(v,c);
+	if(u==v)return;
+	if(siz[c][u]&gt;siz[c][v])swap(u,v);
+	siz[c][v]+=siz[c][u];fa[c][u]=v;
+	st[++top]=(wty){u,v,c};
+}
+
+inline void dfs(int x,int l,int r)
+{
+	int re=top;
+	for(int i=0;i&lt;(int)edge[x].size();i++)
+	{
+		int u=e[edge[x][i]].u,v=e[edge[x][i]].v,c=e[edge[x][i]].c;
+		if(!c)continue;merge(v,u+n,c);merge(u,v+n,c);
+	}
+	if(l==r)
+	{
+		int id=p[l].id,u=e[id].u,v=e[id].v,c=p[l].c;
+		u=find(u,c);v=find(v,c);
+		if(u==v)puts(&quot;NO&quot;);
+		else puts(&quot;YES&quot;),e[id].c=c;
+	}
+	else dfs(ls,l,mid),dfs(rs,mid+1,r);
+	while(top&gt;re)
+	{
+		int aa=st[top].a,bb=st[top].b,cc=st[top].c;
+		siz[cc][bb]-=siz[cc][aa];fa[cc][aa]=aa;
+		top--;
+	}
+	return;
+}
+
+char ch,B0[1&lt;&lt;15],*S=B0,*T=B0;
+#define getc() (S==T&amp;&amp;(T=(S=B0)+fread(B0,1,1&lt;&lt;15,stdin),S==T)?0:*S++)
+int aa;inline int read(){
+	while(ch=getc(),ch&lt;'0'||ch&gt;'9');aa=ch-'0';
+	while(ch=getc(),ch&gt;='0'&amp;&amp;ch&lt;='9')aa=aa*10+ch-'0';return aa;
+}
+
+main()
+{
+	n=read(),m=read(),k=read(),q=read();
+	for(int i=1;i&lt;=m;i++)e[i].u=read(),e[i].v=read(),la[i]=q+1;
+	for(int i=1;i&lt;=q;i++)p[i].id=read(),p[i].c=read();
+	for(int i=1;i&lt;=k;i++)
+	for(int j=1;j&lt;=2*n;j++)
+	fa[i][j]=j,siz[i][j]=1;
+	for(int i=q;i&gt;=1;i--)
+	{
+		if(i!=q)add(1,1,q,i+1,la[p[i].id]-1,p[i].id);
+		la[p[i].id]=i;
+	}
+	dfs(1,1,q);
+}
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[CF827D Best Edge Weight 题解]]></title>
         <id>https://wtyakioi.github.io/post/cf827d-best-edge-weight-ti-jie/</id>
@@ -1347,140 +1468,6 @@ main()
 		}
 		cout&lt;&lt;ans/2&lt;&lt;'\n';
 	}
-}
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[CF603E Pastoral Oddities]]></title>
-        <id>https://wtyakioi.github.io/post/cf603e-pastoral-oddities/</id>
-        <link href="https://wtyakioi.github.io/post/cf603e-pastoral-oddities/">
-        </link>
-        <updated>2022-10-26T01:31:26.000Z</updated>
-        <content type="html"><![CDATA[<h3 id="pastoral-oddities"><a href="https://www.luogu.com.cn/problem/CF603E">Pastoral Oddities</a></h3>
-<p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span> 个点，动态加入 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span> 条边，加入一条边后查询是否存在一个边集使得每个点的度数为奇数。</p>
-<p>考虑条件限制的本质。</p>
-<p>每个点的度数为奇数，但是一个连通块中的总度数是偶数，那么若这个连通块有奇数个点，则这个联通块必不合法。</p>
-<p>若连通块的点个数是偶数，那可以先求出一个生成树，从叶子向上贪心，根据向儿子的连边情况判断是否连这条边即可构造。</p>
-<p>然后考虑一个静态的问题。</p>
-<p>将边从小到大排序，用 Kruskal 加边，直到奇数个点的连通块个数为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span> 为止，注意到多加边不会对答案造成影响。</p>
-<p>这是一个没有前途的静态做法。</p>
-<p>考虑到动态加边十分麻烦，还要支持动态排序，那么可以用时间回溯大法，先将所有的边加进去，然后从后面开始枚举，然后删边。</p>
-<p>考虑到一条边在排出边集之后（或者没加入边集）永远不会再次加入到边集中，那么可以维护一个没加入边集的边，从小到大排序，维护一个 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mi>o</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">pos</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span><span class="mord mathdefault">o</span><span class="mord mathdefault">s</span></span></span></span> 指针，在删掉一条边之后就将 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mi>o</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">pos</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span><span class="mord mathdefault">o</span><span class="mord mathdefault">s</span></span></span></span> 向后移，直到满足条件为止。</p>
-<p>这其实就是加边、删边，维护联通情况的问题，直接来个可撤销的并查集显然无法维护联通性，然后错过一大堆信息。</p>
-<p>这其实可以套用 <a href="https://www.luogu.com.cn/problem/P5787">二分图</a> 的套路，用 LCT 维护最小的删除时间和边的编号，若要删的边正好是 LCT 中标记的那条边时，将 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mi>o</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">pos</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span><span class="mord mathdefault">o</span><span class="mord mathdefault">s</span></span></span></span> 向后移，直到满足条件为止。否则跳过。</p>
-<p>每一时刻的答案是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>v</mi><mi>a</mi><msub><mi>l</mi><mrow><mi>p</mi><mi>o</mi><mi>s</mi></mrow></msub></mrow><annotation encoding="application/x-tex">val_{pos}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mord mathdefault">a</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.15139200000000003em;"><span style="top:-2.5500000000000003em;margin-left:-0.01968em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">p</span><span class="mord mathdefault mtight">o</span><span class="mord mathdefault mtight">s</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>。时间是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>n</mi><mi>log</mi><mo>⁡</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(n\log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">n</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span> <s>虽然常数巨大</s>。</p>
-<p>同样地，<a href="https://www.luogu.com.cn/problem/P5787">二分图</a> 和这道题也都可以用线段树分治做。</p>
-<p>具体做法是维护每条边的影响范围，从后面向前分治。</p>
-<p>还是将所有边按照权值从小到大排序，枚举到叶子且当前不满足条件时，将 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>p</mi><mi>o</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">pos</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.625em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">p</span><span class="mord mathdefault">o</span><span class="mord mathdefault">s</span></span></span></span> 向后移直到满足条件为止，同时将枚举到的边 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span> 在线段树上的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mi>t</mi><mi>i</mi><mi>m</mi><msub><mi>e</mi><mi>i</mi></msub><mo separator="true">,</mo><mi>l</mi><mo>−</mo><mn>1</mn><mo>]</mo></mrow><annotation encoding="application/x-tex">[time_i,l-1]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathdefault">t</span><span class="mord mathdefault">i</span><span class="mord mathdefault">m</span><span class="mord"><span class="mord mathdefault">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span></span></span></span> 加上 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>，因为这代表着这条边会在 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>l</mi><mo>+</mo><mn>1</mn></mrow><annotation encoding="application/x-tex">l+1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.77777em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span> 处被排出边集。跑到叶子时答案还是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>v</mi><mi>a</mi><msub><mi>l</mi><mrow><mi>p</mi><mi>o</mi><mi>s</mi></mrow></msub></mrow><annotation encoding="application/x-tex">val_{pos}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord mathdefault" style="margin-right:0.03588em;">v</span><span class="mord mathdefault">a</span><span class="mord"><span class="mord mathdefault" style="margin-right:0.01968em;">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.15139200000000003em;"><span style="top:-2.5500000000000003em;margin-left:-0.01968em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">p</span><span class="mord mathdefault mtight">o</span><span class="mord mathdefault mtight">s</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span>。时间依旧是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>m</mi><mi>log</mi><mo>⁡</mo><mi>m</mi><mi>log</mi><mo>⁡</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(m\log m\log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mord mathdefault">m</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">m</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>。</p>
-<p>代码（线段树分治的版本）</p>
-<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
-using namespace std;
-const int N=2e6+500,M=6e5+50;
-
-struct node
-{
-	int u,v,w,tim;
-	
-	inline friend bool operator&lt;(node a,node b)
-	{
-		return a.w&lt;b.w;
-	}
-}e[N];
-
-struct wty
-{
-	int u,v;
-}k[N];vector&lt;wty&gt;edge[N];
-
-int n,m,pos=1,fa[N],siz[N],num,ans[N],tot;
-
-#define ls (x&lt;&lt;1)
-#define rs (x&lt;&lt;1|1)
-#define mid ((l+r)&gt;&gt;1)
-
-inline void add(int x,int l,int r,int L,int R,wty d)
-{
-	if(L&lt;=l&amp;&amp;R&gt;=r)return void(edge[x].push_back(d));
-	if(L&lt;=mid)add(ls,l,mid,L,R,d);
-	if(R&gt;mid)add(rs,mid+1,r,L,R,d);
-}
-
-inline int find(int x)
-{
-	return x==fa[x]?x:find(fa[x]);
-}
-
-inline void dfs(int x,int l,int r)
-{
-	int renum=num,p=tot;
-	for(int i=0;i&lt;edge[x].size();i++)
-	{
-		int u=edge[x][i].u,v=edge[x][i].v;
-		u=find(u),v=find(v);
-		if(u==v)continue;
-		if(siz[u]&gt;siz[v])swap(u,v);
-		k[++tot]=(wty){u,v};
-		num-=(siz[u]&amp;1)+(siz[v]&amp;1);
-		siz[v]+=siz[u];fa[u]=v;
-		num+=(siz[v]&amp;1);
-	}
-	if(l==r)
-	{
-		while(num&amp;&amp;pos&lt;=m)
-		{
-			if(e[pos].tim&lt;=l)
-			{
-				int u=e[pos].u,v=e[pos].v;
-				if(e[pos].tim!=l)
-				add(1,1,m,e[pos].tim,l-1,(wty){u,v});
-				u=find(u),v=find(v);
-				if(siz[u]&gt;siz[v])swap(u,v);
-				if(u==v){++pos;continue;}
-				k[++tot]=(wty){u,v};
-				num-=(siz[u]&amp;1)+(siz[v]&amp;1);
-				siz[v]+=siz[u];fa[u]=v;
-				num+=(siz[v]&amp;1);
-			}
-			pos++;
-		}
-		ans[l]=num?-1:e[pos-1].w;
-		if(ans[l]==-1)
-		{
-			for(int i=1;i&lt;=l;i++)puts(&quot;-1&quot;);
-			for(int i=l+1;i&lt;=m;i++)printf(&quot;%ld\n&quot;,ans[i]);
-			exit(0);
-		}
-	}
-	else dfs(rs,mid+1,r),dfs(ls,l,mid);
-	while(tot&gt;p)
-	{
-		int u=k[tot].u,v=k[tot].v;
-		siz[v]-=siz[u];fa[u]=u;
-		tot--;
-	}
-	num=renum;
-}
-
-char ch,B0[1&lt;&lt;15],*S=B0,*T=B0;
-#define getc() (S==T&amp;&amp;(T=(S=B0)+fread(B0,1,1&lt;&lt;15,stdin),S==T)?0:*S++)
-int aa;inline int read(){
-	while(ch=getc(),ch&lt;'0'||ch&gt;'9');aa=ch-'0';
-	while(ch=getc(),ch&gt;='0'&amp;&amp;ch&lt;='9')aa=aa*10+ch-'0';return aa;
-}
-
-main()
-{
-	n=read(),m=read();
-	for(int i=1;i&lt;=m;i++)
-	{
-		e[i].u=read(),e[i].v=read(),e[i].w=read();
-		e[i].tim=i;
-	}
-	sort(e+1,e+1+m);num=n;
-	for(int i=1;i&lt;=n;i++)siz[i]=1,fa[i]=i;
-	dfs(1,1,m);
-	for(int i=1;i&lt;=m;i++)printf(&quot;%ld\n&quot;,ans[i]);
 }
 </code></pre>
 ]]></content>
