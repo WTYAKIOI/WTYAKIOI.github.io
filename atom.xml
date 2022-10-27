@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>http://localhost:4000</id>
+    <id>https://wtyakioi.github.io</id>
     <title>zsq147258369</title>
-    <updated>2022-10-27T12:30:15.310Z</updated>
+    <updated>2022-10-27T12:35:57.623Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="http://localhost:4000"/>
-    <link rel="self" href="http://localhost:4000/atom.xml"/>
+    <link rel="alternate" href="https://wtyakioi.github.io"/>
+    <link rel="self" href="https://wtyakioi.github.io/atom.xml"/>
     <subtitle>WTY AK IOI</subtitle>
-    <logo>http://localhost:4000/images/avatar.png</logo>
-    <icon>http://localhost:4000/favicon.ico</icon>
+    <logo>https://wtyakioi.github.io/images/avatar.png</logo>
+    <icon>https://wtyakioi.github.io/favicon.ico</icon>
     <rights>All rights reserved 2022, zsq147258369</rights>
     <entry>
         <title type="html"><![CDATA[CF1264D Beautiful Bracket Sequence]]></title>
-        <id>http://localhost:4000/post/cf1264d-beautiful-bracket-sequence/</id>
-        <link href="http://localhost:4000/post/cf1264d-beautiful-bracket-sequence/">
+        <id>https://wtyakioi.github.io/post/cf1264d-beautiful-bracket-sequence/</id>
+        <link href="https://wtyakioi.github.io/post/cf1264d-beautiful-bracket-sequence/">
         </link>
         <updated>2022-10-27T01:02:53.000Z</updated>
         <summary type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://www.dmoe.cc/random.php" alt="" loading="lazy"></figure>
@@ -63,8 +63,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[CF576E Painting Edges]]></title>
-        <id>http://localhost:4000/post/cf576e-painting-edges/</id>
-        <link href="http://localhost:4000/post/cf576e-painting-edges/">
+        <id>https://wtyakioi.github.io/post/cf576e-painting-edges/</id>
+        <link href="https://wtyakioi.github.io/post/cf576e-painting-edges/">
         </link>
         <updated>2022-10-26T10:50:27.000Z</updated>
         <summary type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="http://img.paulzzh.tech/touhou/random?proxy=1&amp;site=yandere" alt="" loading="lazy"></figure>
@@ -188,8 +188,8 @@ main()
     </entry>
     <entry>
         <title type="html"><![CDATA[CF827D Best Edge Weight 题解]]></title>
-        <id>http://localhost:4000/post/cf827d-best-edge-weight-ti-jie/</id>
-        <link href="http://localhost:4000/post/cf827d-best-edge-weight-ti-jie/">
+        <id>https://wtyakioi.github.io/post/cf827d-best-edge-weight-ti-jie/</id>
+        <link href="https://wtyakioi.github.io/post/cf827d-best-edge-weight-ti-jie/">
         </link>
         <updated>2022-10-26T02:52:41.000Z</updated>
         <summary type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://img.paulzzh.tech/touhou/random" alt="" loading="lazy"></figure>
@@ -381,8 +381,8 @@ main()
     </entry>
     <entry>
         <title type="html"><![CDATA[P4165 [SCOI2007]组队 题解]]></title>
-        <id>http://localhost:4000/post/p4165-scoi2007zu-dui-ti-jie/</id>
-        <link href="http://localhost:4000/post/p4165-scoi2007zu-dui-ti-jie/">
+        <id>https://wtyakioi.github.io/post/p4165-scoi2007zu-dui-ti-jie/</id>
+        <link href="https://wtyakioi.github.io/post/p4165-scoi2007zu-dui-ti-jie/">
         </link>
         <updated>2022-10-26T02:39:31.000Z</updated>
         <summary type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://img.xjh.me/random_img.php?return=302" alt="" loading="lazy"></figure>
@@ -507,8 +507,8 @@ main()
     </entry>
     <entry>
         <title type="html"><![CDATA[P8439 Altale(FTR 9+) 题解]]></title>
-        <id>http://localhost:4000/post/p8439-altaleftr-9-ti-jie/</id>
-        <link href="http://localhost:4000/post/p8439-altaleftr-9-ti-jie/">
+        <id>https://wtyakioi.github.io/post/p8439-altaleftr-9-ti-jie/</id>
+        <link href="https://wtyakioi.github.io/post/p8439-altaleftr-9-ti-jie/">
         </link>
         <updated>2022-10-26T02:27:46.000Z</updated>
         <summary type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://api.ixiaowai.cn/api/api.php" alt="" loading="lazy"></figure>
@@ -759,8 +759,8 @@ main()
     </entry>
     <entry>
         <title type="html"><![CDATA[P6533 RELATIVNOST 题解]]></title>
-        <id>http://localhost:4000/post/p6533-coci2015-20161-relativnost-ti-jie/</id>
-        <link href="http://localhost:4000/post/p6533-coci2015-20161-relativnost-ti-jie/">
+        <id>https://wtyakioi.github.io/post/p6533-coci2015-20161-relativnost-ti-jie/</id>
+        <link href="https://wtyakioi.github.io/post/p6533-coci2015-20161-relativnost-ti-jie/">
         </link>
         <updated>2022-10-26T02:18:28.000Z</updated>
         <summary type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://api.ixiaowai.cn/mcapi/mcapi.php" alt="" loading="lazy"></figure>
@@ -867,8 +867,8 @@ main()
     </entry>
     <entry>
         <title type="html"><![CDATA[P7862 DRŽAVA 题解]]></title>
-        <id>http://localhost:4000/post/p7862-coci2015-20162-drzava-ti-jie/</id>
-        <link href="http://localhost:4000/post/p7862-coci2015-20162-drzava-ti-jie/">
+        <id>https://wtyakioi.github.io/post/p7862-coci2015-20162-drzava-ti-jie/</id>
+        <link href="https://wtyakioi.github.io/post/p7862-coci2015-20162-drzava-ti-jie/">
         </link>
         <updated>2022-10-26T02:10:25.000Z</updated>
         <summary type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://api.ixiaowai.cn/gqapi/gqapi.php" alt="" loading="lazy"></figure>
@@ -972,8 +972,8 @@ main()
     </entry>
     <entry>
         <title type="html"><![CDATA[P7231 DOMINO 题解]]></title>
-        <id>http://localhost:4000/post/p7231-coci2015-20163-domino-ti-jie/</id>
-        <link href="http://localhost:4000/post/p7231-coci2015-20163-domino-ti-jie/">
+        <id>https://wtyakioi.github.io/post/p7231-coci2015-20163-domino-ti-jie/</id>
+        <link href="https://wtyakioi.github.io/post/p7231-coci2015-20163-domino-ti-jie/">
         </link>
         <updated>2022-10-26T02:06:06.000Z</updated>
         <summary type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://www.uxr.cc/api/dm/acgurl.php" alt="" loading="lazy"></figure>
@@ -1118,8 +1118,8 @@ main()
     </entry>
     <entry>
         <title type="html"><![CDATA[P8047 GALAKSIJA 题解]]></title>
-        <id>http://localhost:4000/post/p8047-coci2015-20164-galaksija-ti-jie/</id>
-        <link href="http://localhost:4000/post/p8047-coci2015-20164-galaksija-ti-jie/">
+        <id>https://wtyakioi.github.io/post/p8047-coci2015-20164-galaksija-ti-jie/</id>
+        <link href="https://wtyakioi.github.io/post/p8047-coci2015-20164-galaksija-ti-jie/">
         </link>
         <updated>2022-10-26T02:04:54.000Z</updated>
         <summary type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://tuapi.eees.cc/dongman/pc/TUAPI-EEES-CC-0104654625.jpg" alt="" loading="lazy"></figure>
@@ -1253,8 +1253,8 @@ main()
     </entry>
     <entry>
         <title type="html"><![CDATA[P8037 Prokletnik 题解]]></title>
-        <id>http://localhost:4000/post/p8037-coci2015-20167-prokletnik-ti-jie/</id>
-        <link href="http://localhost:4000/post/p8037-coci2015-20167-prokletnik-ti-jie/">
+        <id>https://wtyakioi.github.io/post/p8037-coci2015-20167-prokletnik-ti-jie/</id>
+        <link href="https://wtyakioi.github.io/post/p8037-coci2015-20167-prokletnik-ti-jie/">
         </link>
         <updated>2022-10-26T02:03:59.000Z</updated>
         <summary type="html"><![CDATA[<figure data-type="image" tabindex="1"><img src="https://www.dmoe.cc/random.php" alt="" loading="lazy"></figure>
