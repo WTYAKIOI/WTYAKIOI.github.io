@@ -8,7 +8,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="WTY AK IOI">
 <meta name="theme-color" content="#000">
-<title>[国家集训队]和与积 | zsq147258369</title>
+<title>zsq147258369</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1666833333823">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -40,8 +40,6 @@
 
 
 
-  <meta name="description" content="[国家集训队]和与积" />
-  <meta name="keywords" content="莫比乌斯反演,数学" />
 </head>
 
 <body>
@@ -174,25 +172,10 @@
   <div class="main-continer">
     
     <div
-      class="section-layout gemini ">
+      class="section-layout  gemini">
       <div class="section-layout-wrapper">
-        
-
-<div class="sidebar">
-  
-    <div class="sidebar-box box-shadow-wrapper bg-color right-motion" id="sidebar">
-      
-        <div class="post-list-sidebar">
-          <div class="sidebar-title">
-            <span id="tocSideBar" class="sidebar-title-item sidebar-title-active language" data-lan="index">文章目录</span>
-            <span id="metaSideBar" class="sidebar-title-item language" data-lan="preview">站点概览</span>
-          </div>
-        </div>
-      
-      <div class="sidebar-body gemini" id="sidebar_body">
-        
-          
-            
+        <div id="sidebarMeta" class="sidebar">
+    
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -233,273 +216,190 @@
 
 
 </div>
-          
-        
-      </div>
-    </div>
-  
 </div>
 <script>
-  const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
-  const SIDEBAR_BODY_ACTIVE = 'sidebar-body-active';
-  const SLIDE_UP_IN = 'slide-up-in';
-
-  let sidebar = document.querySelector('#sidebar'),
-  tocSideBar = document.querySelector('#tocSideBar'),
-  metaSideBar = document.querySelector('#metaSideBar'),
-  postToc = document.querySelector('#post_toc'),
-  postSiteMeta = document.querySelector('#post_side_meta'),
-  sidebarTitle = document.querySelector('.sidebar-title'),
-  sidebarBody = document.querySelector('#sidebar_body');
-
-  tocSideBar && tocSideBar.addEventListener('click', (e) => {
-    toggleSidebar(e);
-  });
-
-  metaSideBar && metaSideBar.addEventListener('click', (e) => {
-    toggleSidebar(e);
-  });
-
-  function toggleSidebar(e) {
-    let currentTitle = document.querySelector("."+SIDEBAR_TITLE_ACTIVE);
-    if (currentTitle == e.srcElement) {
-      return ;
-    }
-    let current, showElement, hideElement;
-    if (e.srcElement == metaSideBar) {
-      showElement = postSiteMeta;
-      hideElement = postToc;
-    } else if (e.srcElement == tocSideBar){
-      showElement = postToc;
-      hideElement = postSiteMeta;
-    }
-    currentTitle.classList.remove(SIDEBAR_TITLE_ACTIVE);
-    e.srcElement.classList.add(SIDEBAR_TITLE_ACTIVE);
-
-    jQuery.Velocity(hideElement, 'stop');
-    jQuery.Velocity(hideElement, 'transition.slideUpOut', {
-      display: 'none',
-      duration: 200,
-      complete: function () {
-        jQuery.Velocity(showElement, 'transition.slideDownIn', {
-          duration: 200
-        });
+  let sidebarMeta = document.querySelector('#sidebarMeta');
+  let scheme = 'gemini';
+  let sidebarWrapper = document.querySelector('.sidebar-wrapper');
+  if (sidebarMeta && (scheme === 'pisces' || scheme === 'gemini')) {
+    document.addEventListener('scroll', function(e) {
+      if (document.scrollingElement.scrollTop > parseInt(sidebarMeta.style.marginTop) + 10) {
+        sidebarWrapper.classList.add('home-sidebar-fixed')
+      } else {
+        sidebarWrapper.classList.remove('home-sidebar-fixed')
       }
-    })
-    hideElement.classList.remove(SIDEBAR_BODY_ACTIVE);
-    showElement.classList.add(SIDEBAR_BODY_ACTIVE);
+    });
   }
-
-  postToc && postToc.addEventListener('transitionend', function() {
-    this.classList.remove(SLIDE_UP_IN);
-  });
-
-  if (sidebarBody) {
-    if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('gemini')) {
-      let hasFix = false;
-      let scrollEl = document.querySelector('.main-continer');
-      let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
-      window.addEventListener('scroll', function(e) {
-        if (document.scrollingElement.scrollTop >= limitTop) {
-          if (!hasFix) {
-            sidebar.classList.add('sidebar-fixed');
-            hasFix = true;
-          }
-        } else {
-          if (hasFix) {
-            sidebar.classList.remove('sidebar-fixed');
-            hasFix = false;
-          }
-        }
-      });
-    }
-  }
-  
-</script>
-        <div class="section-box box-shadow-wrapper">
-          <div class="section bg-color post post-page">
-            <section class="post-header">
-  <h1 class="post-title">
-    <a class="post-title-link" href="https://wtyakioi.github.io/post/guo-jia-ji-xun-dui-he-yu-ji/"> [国家集训队]和与积 </a>
-  </h1>
-  <div class="post-meta">
-    
-    <span class="meta-item pc-show">
-      <i class="fa fa-calendar-o"></i>
-      <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2022-10-21 11:25:44">2022-10-21</span>
-      <span class="post-meta-divider pc-show">|</span>
-    </span>
-    
-    <span class="meta-item">
-      <i class="fa fa-folder-o"></i>
-      <span class="pc-show language" data-lan="category-in">标签:</span>
-       
-      <a href="https://wtyakioi.github.io/tag/wONHsw1Wn/"> <span>莫比乌斯反演</span> </a>、   
-      <a href="https://wtyakioi.github.io/tag/hQeqg-Jik/">
-        <span>数学</span>
+  </script>
+        <div class="section-box tag-line box-shadow-wrapper">
+          <section class="section tags-section posts-expand bg-color">
+            <div class="padding-wrapper">
+  <div class="tag-timeline-box">
+    <div class="tag-timeline-wrapper">
+      <div class="tag-timeline-title">
+        <h2>
+          组合数学
+          <small class="language" data-lan="tag">标签</small>
+        </h2>
+      </div>
+      
+      
+      
+      <a href="https://wtyakioi.github.io/post/cf1264d-beautiful-bracket-sequence/">
+        <div class="motion-warpper">
+          <div class="tag-post-node">
+            <h1>
+              10-27
+              <small>CF1264D Beautiful Bracket Sequence</small>
+            </h1>
+          </div>
+        </div>
       </a>
-       
-    </span>
-    <span class="post-meta-divider">|</span>
-    
-    <span class="meta-item">
-      <i class="fa fa-clock-o"></i>
-      <span
-        >6<span class="language" data-lan="minute"
-          >分钟</span
-        ></span
-      >
-    </span>
-    <span class="meta-item">
-      <span class="post-meta-divider">|</span>
-      <i class="fa fa-file-word-o"></i>
-      <span
-        >878<span class="pc-show language" data-lan="words"
-          >字数</span
-        ></span
-      >
-    </span>
-    
-  </div>
-</section>
-
-            <div class="post-body next-md-body" id="post_body">
-              <p><a href="https://www.luogu.com.cn/problem/P4466">链接</a></p>
-<!-- more -->
-<p>给出 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>，统计满足下面条件的数对 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>(</mo><mi>a</mi><mo separator="true">,</mo><mi>b</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">(a,b)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord mathdefault">a</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">b</span><span class="mclose">)</span></span></span></span> 的个数：</p>
-<ol>
-<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn><mo>≤</mo><mi>a</mi><mo>&lt;</mo><mi>b</mi><mo>≤</mo><mi>n</mi></mrow><annotation encoding="application/x-tex">1\le a &lt; b \le n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.78041em;vertical-align:-0.13597em;"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.5782em;vertical-align:-0.0391em;"></span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.83041em;vertical-align:-0.13597em;"></span><span class="mord mathdefault">b</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span></li>
-<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>a</mi><mo>+</mo><mi>b</mi><mtext> </mtext><mi mathvariant="normal">∣</mi><mtext> </mtext><mi>a</mi><mo>×</mo><mi>b</mi></mrow><annotation encoding="application/x-tex">a+b~\vert ~a\times b</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">b</span><span class="mspace nobreak"> </span><span class="mord">∣</span><span class="mspace nobreak"> </span><span class="mord mathdefault">a</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">b</span></span></span></span></li>
-</ol>
-<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><munder><mo>∑</mo><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi></mrow></munder><mo>[</mo><mi>i</mi><mo>+</mo><mi>j</mi><mtext> </mtext><mi mathvariant="normal">∣</mi><mtext> </mtext><mi>i</mi><mi>j</mi><mo>]</mo><mo>[</mo><mn>1</mn><mo>≤</mo><mi>i</mi><mo>&lt;</mo><mi>j</mi><mo>≤</mo><mi>n</mi><mo>]</mo><mspace linebreak="newline"></mspace><mo>=</mo><munder><mo>∑</mo><mrow><mi>i</mi><mo separator="true">,</mo><mi>j</mi><mo separator="true">,</mo><mi>d</mi><mo separator="true">,</mo><mi>s</mi><mo separator="true">,</mo><mi>t</mi></mrow></munder><mo>[</mo><mi>d</mi><mo>=</mo><mi>gcd</mi><mo>⁡</mo><mo>(</mo><mi>i</mi><mo separator="true">,</mo><mi>j</mi><mo>)</mo><mo>]</mo><mo>[</mo><mi>i</mi><mo>=</mo><mi>s</mi><mi>d</mi><mo>]</mo><mo>[</mo><mi>j</mi><mo>=</mo><mi>t</mi><mi>d</mi><mo>]</mo><mo>[</mo><mn>1</mn><mo>≤</mo><mi>s</mi><mi>d</mi><mo>&lt;</mo><mi>t</mi><mi>d</mi><mo>≤</mo><mi>n</mi><mo>]</mo><mo>[</mo><mi>d</mi><mo>(</mo><mi>s</mi><mo>+</mo><mi>t</mi><mo>)</mo><mtext> </mtext><mi mathvariant="normal">∣</mi><mtext> </mtext><msup><mi>d</mi><mn>2</mn></msup><mi>s</mi><mi>t</mi><mo>]</mo><mo>[</mo><mi>s</mi><mi mathvariant="normal">⊥</mi><mi>t</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">\sum_{i,j}[i+j~\vert~ij][1\le i&lt;j\le n]\\
-=\sum_{i,j,d,s,t}[d=\gcd(i,j)][i=sd][j=td][1\le sd&lt;td\le n][d(s+t)~\vert~d^2st][s\bot t]
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:2.463782em;vertical-align:-1.413777em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.050005em;"><span style="top:-1.8723309999999997em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span style="top:-3.0500049999999996em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.413777em;"><span></span></span></span></span></span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mspace nobreak"> </span><span class="mord">∣</span><span class="mspace nobreak"> </span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69862em;vertical-align:-0.0391em;"></span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">n</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.488226em;vertical-align:-1.438221em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.050005em;"><span style="top:-1.8478869999999998em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">i</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight">d</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight">s</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight">t</span></span></span></span><span style="top:-3.0500049999999996em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.438221em;"><span></span></span></span></span></span><span class="mopen">[</span><span class="mord mathdefault">d</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mop"><span style="margin-right:0.01389em;">g</span>cd</span><span class="mopen">(</span><span class="mord mathdefault">i</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mclose">)</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">d</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">t</span><span class="mord mathdefault">d</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.73354em;vertical-align:-0.0391em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">d</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.83041em;vertical-align:-0.13597em;"></span><span class="mord mathdefault">t</span><span class="mord mathdefault">d</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">n</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault">d</span><span class="mopen">(</span><span class="mord mathdefault">s</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.1141079999999999em;vertical-align:-0.25em;"></span><span class="mord mathdefault">t</span><span class="mclose">)</span><span class="mspace nobreak"> </span><span class="mord">∣</span><span class="mspace nobreak"> </span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mord mathdefault">s</span><span class="mord mathdefault">t</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault">s</span><span class="mord">⊥</span><span class="mord mathdefault">t</span><span class="mclose">]</span></span></span></span></span></p>
-<p>注意到 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mi>d</mi><mo>(</mo><mi>s</mi><mo>+</mo><mi>t</mi><mo>)</mo><mtext> </mtext><mi mathvariant="normal">∣</mi><mtext> </mtext><msup><mi>d</mi><mn>2</mn></msup><mi>s</mi><mi>t</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">[d(s+t)~\vert~d^2st]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathdefault">d</span><span class="mopen">(</span><span class="mord mathdefault">s</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-0.25em;"></span><span class="mord mathdefault">t</span><span class="mclose">)</span><span class="mspace nobreak"> </span><span class="mord">∣</span><span class="mspace nobreak"> </span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mord mathdefault">s</span><span class="mord mathdefault">t</span><span class="mclose">]</span></span></span></span> 可以化为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mi>s</mi><mo>+</mo><mi>t</mi><mtext> </mtext><mi mathvariant="normal">∣</mi><mtext> </mtext><mi>d</mi><mi>s</mi><mi>t</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">[s+t~\vert~dst]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathdefault">s</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">t</span><span class="mspace nobreak"> </span><span class="mord">∣</span><span class="mspace nobreak"> </span><span class="mord mathdefault">d</span><span class="mord mathdefault">s</span><span class="mord mathdefault">t</span><span class="mclose">]</span></span></span></span>，而 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi mathvariant="normal">⊥</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">s\bot t</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault">s</span><span class="mord">⊥</span><span class="mord mathdefault">t</span></span></span></span>，故 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mo>+</mo><mi>t</mi><mo>∤</mo><mi>s</mi><mi>t</mi></mrow><annotation encoding="application/x-tex">s+t \nmid st</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault">s</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.99253em;vertical-align:-0.25142em;"></span><span class="mord mathdefault">t</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel amsrm">∤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.61508em;vertical-align:0em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">t</span></span></span></span>，所以可以化为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>[</mo><mi>s</mi><mo>+</mo><mi>t</mi><mtext> </mtext><mi mathvariant="normal">∣</mi><mtext> </mtext><mi>d</mi><mo>]</mo></mrow><annotation encoding="application/x-tex">[s+t~\vert~d]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord mathdefault">s</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">t</span><span class="mspace nobreak"> </span><span class="mord">∣</span><span class="mspace nobreak"> </span><span class="mord mathdefault">d</span><span class="mclose">]</span></span></span></span>。</p>
-<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>=</mo><munder><mo>∑</mo><mrow><mi>s</mi><mo separator="true">,</mo><mi>t</mi><mo separator="true">,</mo><mi>d</mi></mrow></munder><mo>[</mo><mn>1</mn><mo>≤</mo><mi>s</mi><mi>d</mi><mo>&lt;</mo><mi>t</mi><mi>d</mi><mo>≤</mo><mi>n</mi><mo>]</mo><mo>[</mo><mi>s</mi><mo>+</mo><mi>t</mi><mtext> </mtext><mi mathvariant="normal">∣</mi><mtext> </mtext><mi>d</mi><mo>]</mo><mo>[</mo><mi>s</mi><mi mathvariant="normal">⊥</mi><mi>t</mi><mo>]</mo><mspace linebreak="newline"></mspace><mo>=</mo><munder><mo>∑</mo><mrow><mi>s</mi><mo separator="true">,</mo><mi>t</mi><mo separator="true">,</mo><mi>d</mi><mo separator="true">,</mo><mi>k</mi></mrow></munder><mo>[</mo><mi>d</mi><mo>=</mo><mi>k</mi><mo>(</mo><mi>s</mi><mo>+</mo><mi>t</mi><mo>)</mo><mo>]</mo><mo>[</mo><mi>s</mi><mi mathvariant="normal">⊥</mi><mi>t</mi><mo>]</mo><mo>[</mo><mn>1</mn><mo>≤</mo><mi>s</mi><mi>k</mi><mo>(</mo><mi>s</mi><mo>+</mo><mi>t</mi><mo>)</mo><mo>&lt;</mo><mi>t</mi><mi>k</mi><mo>(</mo><mi>s</mi><mo>+</mo><mi>t</mi><mo>)</mo><mo>≤</mo><mi>n</mi><mo>]</mo><mo>[</mo><mi>k</mi><mo>≥</mo><mn>1</mn><mo>]</mo><mspace linebreak="newline"></mspace><mo>=</mo><munder><mo>∑</mo><mrow><mi>s</mi><mo separator="true">,</mo><mi>t</mi><mo separator="true">,</mo><mi>k</mi></mrow></munder><mo>[</mo><mi>s</mi><mi mathvariant="normal">⊥</mi><mi>t</mi><mo>]</mo><mo>[</mo><mi>k</mi><mo>∈</mo><mo>[</mo><mn>1</mn><mo separator="true">,</mo><mfrac><mi>n</mi><mrow><mi>t</mi><mo>(</mo><mi>s</mi><mo>+</mo><mi>t</mi><mo>)</mo></mrow></mfrac><mo>]</mo><mo>]</mo><mo>[</mo><mi>s</mi><mo>&lt;</mo><mi>t</mi><mo>]</mo><mspace linebreak="newline"></mspace><mo>=</mo><munder><mo>∑</mo><mrow><mi>s</mi><mo separator="true">,</mo><mi>t</mi></mrow></munder><mo>⌊</mo><mfrac><mi>n</mi><mrow><mi>t</mi><mo>(</mo><mi>s</mi><mo>+</mo><mi>t</mi><mo>)</mo></mrow></mfrac><mo>⌋</mo><mo>[</mo><mi>s</mi><mi mathvariant="normal">⊥</mi><mi>t</mi><mo>]</mo><mo>[</mo><mi>s</mi><mo>&lt;</mo><mi>t</mi><mo>]</mo><mspace linebreak="newline"></mspace><mo>=</mo><munder><mo>∑</mo><mrow><mi>s</mi><mo separator="true">,</mo><mi>t</mi><mo separator="true">,</mo><mi>k</mi></mrow></munder><mo>⌊</mo><mfrac><mi>n</mi><mrow><mi>t</mi><mo>(</mo><mi>s</mi><mo>+</mo><mi>t</mi><mo>)</mo></mrow></mfrac><mo>⌋</mo><mo>[</mo><mi>k</mi><mtext> </mtext><mi mathvariant="normal">∣</mi><mtext> </mtext><mi>s</mi><mo>]</mo><mo>[</mo><mi>k</mi><mtext> </mtext><mi mathvariant="normal">∣</mi><mtext> </mtext><mi>t</mi><mo>]</mo><mo>[</mo><mi>s</mi><mo>&lt;</mo><mi>t</mi><mo>]</mo><mi>μ</mi><mo>(</mo><mi>k</mi><mo>)</mo><mspace linebreak="newline"></mspace></mrow><annotation encoding="application/x-tex">=\sum_{s,t,d}[1\le sd&lt;td\le n][s+t~\vert~d][s\bot t]\\
-=\sum_{s,t,d,k}[d=k(s+t)][s\bot t][1\le sk(s+t)&lt;tk(s+t)\le n][k\ge 1	]\\
-=\sum_{s,t,k}[s\bot t][k\in[1,\frac{n}{t(s+t)}]][s&lt;t]\\
-=\sum_{s,t}\lfloor\frac{n}{t(s+t)} \rfloor[s\bot t][s&lt;t]\\
-=\sum_{s,t,k}\lfloor\frac{n}{t(s+t)} \rfloor[k~\vert~s][k~\vert~t][s&lt;t]\mu(k)\\
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.488226em;vertical-align:-1.438221em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.050005em;"><span style="top:-1.8478869999999998em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">s</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight">t</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight">d</span></span></span></span><span style="top:-3.0500049999999996em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.438221em;"><span></span></span></span></span></span><span class="mopen">[</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.73354em;vertical-align:-0.0391em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">d</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.83041em;vertical-align:-0.13597em;"></span><span class="mord mathdefault">t</span><span class="mord mathdefault">d</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">n</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault">s</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">t</span><span class="mspace nobreak"> </span><span class="mord">∣</span><span class="mspace nobreak"> </span><span class="mord mathdefault">d</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault">s</span><span class="mord">⊥</span><span class="mord mathdefault">t</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.488226em;vertical-align:-1.438221em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.050005em;"><span style="top:-1.8478869999999998em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">s</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight">t</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight">d</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span><span style="top:-3.0500049999999996em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.438221em;"><span></span></span></span></span></span><span class="mopen">[</span><span class="mord mathdefault">d</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mopen">(</span><span class="mord mathdefault">s</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">t</span><span class="mclose">)</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault">s</span><span class="mord">⊥</span><span class="mord mathdefault">t</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord">1</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mopen">(</span><span class="mord mathdefault">s</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">t</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">t</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mopen">(</span><span class="mord mathdefault">s</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">t</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">n</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.488226em;vertical-align:-1.438221em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.050005em;"><span style="top:-1.8478869999999998em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">s</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight">t</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span><span style="top:-3.0500049999999996em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.438221em;"><span></span></span></span></span></span><span class="mopen">[</span><span class="mord mathdefault">s</span><span class="mord">⊥</span><span class="mord mathdefault">t</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.0435600000000003em;vertical-align:-0.936em;"></span><span class="mopen">[</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.10756em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="mopen">(</span><span class="mord mathdefault">s</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">t</span><span class="mclose">)</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.936em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose">]</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault">s</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">t</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.4936730000000003em;vertical-align:-1.386113em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.0500050000000003em;"><span style="top:-1.8999949999999999em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">s</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight">t</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.386113em;"><span></span></span></span></span></span><span class="mopen">⌊</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.10756em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="mopen">(</span><span class="mord mathdefault">s</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">t</span><span class="mclose">)</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.936em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose">⌋</span><span class="mopen">[</span><span class="mord mathdefault">s</span><span class="mord">⊥</span><span class="mord mathdefault">t</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault">s</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">t</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:2.545781em;vertical-align:-1.438221em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.050005em;"><span style="top:-1.8478869999999998em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">s</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight">t</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span><span style="top:-3.0500049999999996em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.438221em;"><span></span></span></span></span></span><span class="mopen">⌊</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.10756em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="mopen">(</span><span class="mord mathdefault">s</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">t</span><span class="mclose">)</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.936em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose">⌋</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace nobreak"> </span><span class="mord">∣</span><span class="mspace nobreak"> </span><span class="mord mathdefault">s</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mspace nobreak"> </span><span class="mord">∣</span><span class="mspace nobreak"> </span><span class="mord mathdefault">t</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathdefault">s</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">&lt;</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">t</span><span class="mclose">]</span><span class="mord mathdefault">μ</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mclose">)</span></span><span class="mspace newline"></span></span></span></span></p>
-<p>换成上下界的形式</p>
-<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><munderover><mo>∑</mo><mrow><mi>t</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><munderover><mo>∑</mo><mrow><mi>s</mi><mo>=</mo><mn>1</mn></mrow><mrow><mi>t</mi><mo>−</mo><mn>1</mn></mrow></munderover><munder><mo>∑</mo><mrow><mi>k</mi><mtext> </mtext><mi mathvariant="normal">∣</mi><mi>gcd</mi><mo>⁡</mo><mo>(</mo><mi>s</mi><mo separator="true">,</mo><mi>t</mi><mo>)</mo></mrow></munder><mo>⌊</mo><mfrac><mi>n</mi><mrow><mi>t</mi><mo>(</mo><mi>s</mi><mo>+</mo><mi>t</mi><mo>)</mo></mrow></mfrac><mo>⌋</mo><mi>μ</mi><mo>(</mo><mi>k</mi><mo>)</mo><mspace linebreak="newline"></mspace><mo>=</mo><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mi>μ</mi><mo>(</mo><mi>k</mi><mo>)</mo><munderover><mo>∑</mo><mrow><mi>t</mi><mo>=</mo><mn>1</mn></mrow><mrow><mo>⌊</mo><mfrac><mi>n</mi><mi>k</mi></mfrac><mo>⌋</mo></mrow></munderover><munderover><mo>∑</mo><mrow><mi>s</mi><mo>=</mo><mn>1</mn></mrow><mrow><mi>t</mi><mo>−</mo><mn>1</mn></mrow></munderover><mo>⌊</mo><mfrac><mi>n</mi><mrow><msup><mi>k</mi><mn>2</mn></msup><mi>t</mi><mo>(</mo><mi>s</mi><mo>+</mo><mi>t</mi><mo>)</mo></mrow></mfrac><mo>⌋</mo></mrow><annotation encoding="application/x-tex">\sum_{t=1}^n\sum_{s=1}^{t-1}\sum_{k~\vert\gcd(s,t)}\lfloor\frac{n}{t(s+t)}\rfloor\mu(k)\\
-=\sum_{k=1}^n\mu(k) \sum_{t=1}^{\lfloor\frac{n}{k}\rfloor}\sum_{s=1}^{t-1}\lfloor\frac{n}{k^2t(s+t)}\rfloor
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:3.3171180000000007em;vertical-align:-1.516005em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6513970000000002em;"><span style="top:-1.882887em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">t</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3000050000000005em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.267113em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.8011130000000004em;"><span style="top:-1.882887em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">s</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.300005em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">t</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.267113em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.050005em;"><span style="top:-1.808995em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span><span class="mspace nobreak mtight"><span class="mtight"> </span></span><span class="mord mtight">∣</span><span class="mspace mtight" style="margin-right:0.19516666666666668em;"></span><span class="mop mtight"><span style="margin-right:0.01389em;">g</span>cd</span><span class="mopen mtight">(</span><span class="mord mathdefault mtight">s</span><span class="mpunct mtight">,</span><span class="mord mathdefault mtight">t</span><span class="mclose mtight">)</span></span></span></span><span style="top:-3.0500049999999996em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.516005em;"><span></span></span></span></span></span><span class="mopen">⌊</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.10756em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="mopen">(</span><span class="mord mathdefault">s</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">t</span><span class="mclose">)</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.936em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose">⌋</span><span class="mord mathdefault">μ</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:3.328918em;vertical-align:-1.302113em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.6513970000000002em;"><span style="top:-1.8478869999999998em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.0500049999999996em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.300005em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.302113em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">μ</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.026805em;"><span style="top:-1.882887em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">t</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.451805em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mopen mtight">⌊</span><span class="mord mtight"><span class="mopen nulldelimiter sizing reset-size3 size6"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.6915428571428572em;"><span style="top:-2.656em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span><span style="top:-3.2255000000000003em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line mtight" style="border-bottom-width:0.049em;"></span></span><span style="top:-3.384em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.344em;"><span></span></span></span></span></span><span class="mclose nulldelimiter sizing reset-size3 size6"></span></span><span class="mclose mtight">⌋</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.267113em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.8011130000000004em;"><span style="top:-1.882887em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">s</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.300005em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">t</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.267113em;"><span></span></span></span></span></span><span class="mopen">⌊</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.10756em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord"><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.740108em;"><span style="top:-2.9890000000000003em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mord mathdefault">t</span><span class="mopen">(</span><span class="mord mathdefault">s</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mord mathdefault">t</span><span class="mclose">)</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.936em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose">⌋</span></span></span></span></span></p>
-<p>注意到 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>k</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">k^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msup><mi>t</mi><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">t^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span> 应小于等于 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">n</span></span></span></span>，否则后面的式子变为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>0</mn></mrow><annotation encoding="application/x-tex">0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">0</span></span></span></span>。</p>
-<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mo>=</mo><munderover><mo>∑</mo><mrow><mi>k</mi><mo>=</mo><mn>1</mn></mrow><msqrt><mi>n</mi></msqrt></munderover><mi>μ</mi><mo>(</mo><mi>k</mi><mo>)</mo><munderover><mo>∑</mo><mrow><mi>t</mi><mo>=</mo><mn>2</mn></mrow><mfrac><msqrt><mi>n</mi></msqrt><mi>k</mi></mfrac></munderover><munderover><mo>∑</mo><mrow><mi>s</mi><mo>=</mo><mi>t</mi><mo>+</mo><mn>1</mn></mrow><mrow><mn>2</mn><mi>t</mi><mo>−</mo><mn>1</mn></mrow></munderover><mo>⌊</mo><mfrac><mrow><mo>⌊</mo><mfrac><mi>n</mi><mrow><msup><mi>k</mi><mn>2</mn></msup><mi>t</mi></mrow></mfrac><mo>⌋</mo></mrow><mi>s</mi></mfrac><mo>⌋</mo></mrow><annotation encoding="application/x-tex">=\sum_{k=1}^{\sqrt {n}} \mu(k) \sum_{t=2}^{\frac{\sqrt n}{k}}\sum_{s=t+1}^{2t-1}\lfloor
-\frac{\lfloor\frac{n}{k^2t}\rfloor}{s} \rfloor
-</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:3.5736990000000004em;vertical-align:-1.3254439999999998em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.9890050000000001em;"><span style="top:-1.8478869999999998em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span><span class="mrel mtight">=</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.0500049999999996em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3748715em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord sqrt mtight"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8059050000000001em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mtight" style="padding-left:0.833em;"><span class="mord mathdefault mtight">n</span></span></span><span style="top:-2.765905em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail mtight" style="min-width:0.853em;height:1.08em;"><svg width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,
--10,-9.5,-14c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54c44.2,-33.3,65.8,
--50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10s173,378,173,378c0.7,0,
-35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429c69,-144,104.5,-217.7,106.5,
--221c5.3,-9.3,12,-14,20,-14H400000v40H845.2724s-225.272,467,-225.272,467
-s-235,486,-235,486c-2.7,4.7,-9,7,-19,7c-6,0,-10,-1,-12,-3s-194,-422,-194,-422
-s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.234095em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.302113em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">μ</span><span class="mopen">(</span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:2.2482550000000003em;"><span style="top:-1.882887em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">t</span><span class="mrel mtight">=</span><span class="mord mtight">2</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.451805em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mopen nulldelimiter sizing reset-size3 size6"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.066357142857143em;"><span style="top:-2.656em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span><span style="top:-3.2255000000000003em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line mtight" style="border-bottom-width:0.049em;"></span></span><span style="top:-3.4907107142857146em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight"><span class="mord sqrt mtight"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8059050000000001em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathdefault mtight" style="padding-left:0.833em;">n</span></span><span style="top:-2.765905em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail mtight" style="min-width:0.853em;height:1.08em;"><svg width='400em' height='1.08em' viewBox='0 0 400000 1080' preserveAspectRatio='xMinYMin slice'><path d='M95,702c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,
--10,-9.5,-14c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54c44.2,-33.3,65.8,
--50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10s173,378,173,378c0.7,0,
-35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429c69,-144,104.5,-217.7,106.5,
--221c5.3,-9.3,12,-14,20,-14H400000v40H845.2724s-225.272,467,-225.272,467
-s-235,486,-235,486c-2.7,4.7,-9,7,-19,7c-6,0,-10,-1,-12,-3s-194,-422,-194,-422
-s-65,47,-65,47z M834 80H400000v40H845z'/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.234095em;"><span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.344em;"><span></span></span></span></span></span><span class="mclose nulldelimiter sizing reset-size3 size6"></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.267113em;"><span></span></span></span></span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mop op-limits"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.8011130000000006em;"><span style="top:-1.882887em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">s</span><span class="mrel mtight">=</span><span class="mord mathdefault mtight">t</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span><span style="top:-3.050005em;"><span class="pstrut" style="height:3.05em;"></span><span><span class="mop op-symbol large-op">∑</span></span></span><span style="top:-4.3000050000000005em;margin-left:0em;"><span class="pstrut" style="height:3.05em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mord mathdefault mtight">t</span><span class="mbin mtight">−</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:1.3254439999999998em;"><span></span></span></span></span></span><span class="mopen">⌊</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.4849999999999999em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord mathdefault">s</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.7350000000000003em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mopen">⌊</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.695392em;"><span style="top:-2.6550000000000002em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.7463142857142857em;"><span style="top:-2.786em;margin-right:0.07142857142857144em;"><span class="pstrut" style="height:2.5em;"></span><span class="sizing reset-size3 size1 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span><span class="mord mathdefault mtight">t</span></span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.394em;"><span class="pstrut" style="height:3em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathdefault mtight">n</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.345em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose">⌋</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.686em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mclose">⌋</span></span></span></span></span></p>
-<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
-#define int long long
-using namespace std;
-const int N=sqrt(3e7)+555500;
-
-int n,mu[N],ans,a[N],cnt,pri[N],m;
-
-void init()
-{
-	m=sqrt(n);mu[1]=1;
-	for(int i=2;i&lt;=m;i++)
-	{
-		if(!a[i])pri[++cnt]=i,mu[i]=-1;
-		for(int j=1;j&lt;=cnt&amp;&amp;pri[j]*i&lt;=m;j++)
-		{
-			a[i*pri[j]]=1;
-			if(i%pri[j]==0)break;
-			mu[i*pri[j]]=-mu[i];
-		}
-	}
-}
-
-int find(int x,int L,int R)
-{
-//	cout&lt;&lt;x&lt;&lt;' '&lt;&lt;L&lt;&lt;' '&lt;&lt;R&lt;&lt;' ';
-	int ans=0;R=min(R,x);
-	for(int i=L;i&lt;=R;i++)
-	{
-		int val=x/i,r=min(R,x/val);
-		ans+=(r-i+1)*val;
-		i=r;
-	}
-//	cout&lt;&lt;ans&lt;&lt;'\n';
-	return ans;
-}
-
-main()
-{
-	cin&gt;&gt;n;init();
-	for(int k=1;k&lt;=m;k++)if(mu[k])
-	{
-//		cout&lt;&lt;k&lt;&lt;' '&lt;&lt;mu[k]&lt;&lt;'\n';
-		for(int t=2;t&lt;=m/k;t++)
-		{
-			ans+=find(n/(k*k*t),t+1,2*t-1)*mu[k];
-		}
-	}
-	cout&lt;&lt;ans;
-}
-</code></pre>
-
-            </div>
-            
-            
-              <div class="post-footer">
-  <ul class="post-copyright">
-    <li class="post-copyright-author">
-      <strong class="language" data-lan="author">本文作者：</strong>
-      zsq
-    </li>
-    <li class="post-copyright-link">
-      <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://wtyakioi.github.io/post/guo-jia-ji-xun-dui-he-yu-ji/" title="[国家集训队]和与积">https://wtyakioi.github.io/post/guo-jia-ji-xun-dui-he-yu-ji/</a>
-    </li>
-    <li class="post-copyright-license">
-      <strong class="language" data-lan="copyright">版权声明： </strong>
-      本博客所有文章除特别声明外，均采用<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i> BY-NC-SA</a> 许可协议。转载请注明出处！
-    </li>
-  </ul>
-  <div class="tags">
-    
-      <a href="https://wtyakioi.github.io/tag/wONHsw1Wn/"># 莫比乌斯反演</a>
-    
-      <a href="https://wtyakioi.github.io/tag/hQeqg-Jik/"># 数学</a>
-    
-  </div>
-  <div class="nav">
-    <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="CQOI2012局部极小值" href="https://wtyakioi.github.io/post/cqoi2012-ju-bu-ji-xiao-zhi/">CQOI2012局部极小值</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="CQOI2012局部极小值" href="https://wtyakioi.github.io/post/cqoi2012-ju-bu-ji-xiao-zhi/">上一篇</a>
       
-    </div>
-    <div class="nav-next">
       
-        <a class="nav-pc-next" title="Ynoi2018 未来日记" href="https://wtyakioi.github.io/post/ynoi2018-wei-lai-ri-ji/">Ynoi2018 未来日记</a>
-        <a class="nav-mobile-next" title="Ynoi2018 未来日记" href="https://wtyakioi.github.io/post/ynoi2018-wei-lai-ri-ji/">下一篇</a>
-        <i class="fa fa-chevron-right"></i>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       
     </div>
   </div>
 </div>
-            
-            
-  
-
-          </div>
+          </section>
         </div>
       </div>
     </div>
@@ -1290,223 +1190,6 @@ main()
     parent.insertBefore(aelem, next);
   });
 </script>
-    <div class="reward-mask" style="display: none;">
-  <div class="reward-relative">
-    <span class="close" aria-hidden="true">x</span>
-    <div class="reward-body">
-      <h2>感谢您的支持，我会继续努力的!</h2>
-      <div class="reward-img-box">
-        <div style="position: relative; width: 140px; height: 140px;">
-          
-          
-          
-        </div>
-      </div>
-      <p class="reward-word">扫码打赏，你说多少就多少</p>
-      <p class="reward-tip"> </p>
-    </div>
-    <div class="bottom">
-      
-      
-    </div>
-  </div>
-</div>
-<style>
-  .reward-mask {
-    position: fixed;
-    z-index: 99999;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: #00000054;
-  }
-
-  .reward-relative {
-    position: relative;
-    width: 480px;
-    text-align: center;
-    margin: 0 auto;
-    border-radius: 5px;
-    background-color: #fff;
-    top: 50%;
-    margin-top: -205px;
-  }
-
-  .reward-relative .close {
-    position: absolute;
-    right: 10px;
-    font-weight: normal;
-    font-size: 16px;
-    color: #929292;
-  }
-
-  .reward-body {
-    padding: 40px 20px 20px;
-  }
-
-  .bottom {
-    display: flex;
-  }
-
-  .reward-btn {
-    text-align: center;
-  }
-
-  .reward-btn-text {
-    display: inline-block;
-    cursor: pointer;
-    width: 60px;
-    height: 60px;
-    line-height: 60px;
-    border-radius: 50%;
-    background-color: #ff9734;
-    color: #FFF;
-    margin-top: 20px;
-  }
-
-  .pay-text {
-    margin-top: 10px;
-    padding: 10px;
-    flex: 1;
-    transition: all .2s linear;
-  }
-
-  .pay-text:hover {
-    background-color: #a5a5a536;
-  }
-
-  .reward-body h2 {
-    padding-top: 10px;
-    text-align: center;
-    color: #a3a3a3;
-    font-size: 16px;
-    font-weight: normal;
-    margin: 0 0 20px;
-  }
-
-  .reward-body h2:after,
-  .reward-body h2:before {
-    font-family: Arial, Helvetica, sans-serif;
-    background: 0 0;
-    width: 0;
-    height: 0;
-    font-style: normal;
-    color: #eee;
-    font-size: 80px;
-    position: absolute;
-    top: 20px;
-  }
-
-  .reward-body h2:before {
-    content: '\201c';
-    left: 50px;
-  }
-
-  .reward-body h2:after {
-    content: '\201d';
-    right: 80px;
-  }
-
-  .reward-img-box {
-    display: inline-block;
-    padding: 10px;
-    border: 6px solid #ea5f00;
-    margin: 0 auto;
-    border-radius: 3px;
-    position: relative;
-  }
-
-  .reward-img {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    width: 100%;
-    height: 100%;
-  }
-
-  @media (max-width: 767px) {
-    .reward-relative {
-      height: 100%;
-      top: 0px;
-      margin-top: 0;
-      width: auto;
-    }
-
-    .reward-relative .bottom {
-      flex-direction: column;
-    }
-
-    .reward-relative .pay-text {
-      width: 80%;
-      margin: 5px auto;
-      border: 1px solid silver;
-      padding: 6px;
-      border-radius: 4px;
-    }
-
-    .reward-body h2:after {
-      right: 40px;
-    }
-
-    .reward-body h2:after,
-    .reward-body h2:before {
-      font-size: 60px;
-    }
-
-    .reward-body h2:before {
-      left: 20px;
-    }
-  }
-</style>
-<script>
-  !function () {
-    var mask = document.querySelector('.reward-mask');
-    let close = document.querySelector('.reward-relative .close');
-    let rewardBtn = document.querySelector('.reward-btn');
-
-    let zfb = document.querySelector('#zfb'),
-      wx = document.querySelector('#wx'),
-      zfbBtn = document.querySelector('#zfbBtn'),
-      wxBtn = document.querySelector('#wxBtn');
-
-    if (zfbBtn && wxBtn) {
-      zfbBtn.addEventListener('click', () => {
-        jQuery.Velocity(zfb, 'transition.slideLeftIn', {
-          duration: 400
-        });
-        jQuery.Velocity(wx, 'transition.slideRightOut', {
-          display: 'none',
-          duration: 400
-        });
-      });
-
-      wxBtn.addEventListener('click', () => {
-        jQuery.Velocity(wx, 'transition.slideRightIn', {
-          duration: 400
-        });
-        jQuery.Velocity(zfb, 'transition.slideLeftOut', {
-          display: 'none',
-          duration: 400
-        });
-      });
-    }
-
-    rewardBtn.addEventListener('click', (e) => {
-      jQuery.Velocity(mask, 'transition.slideDownIn', {
-        duration: 400
-      })
-    });
-
-    close.addEventListener('click', (e) => {
-      e.preventDefault();
-      jQuery.Velocity(mask, 'transition.slideUpOut', {
-        duration: 400
-      })
-    })
-  }()
-</script>
-
   </div>
 </body>
 
@@ -4651,5 +4334,6 @@ main()
 
   <div class="snow-container"></div>
   <script src="/media/js/bg/snow.js"></script>
+
 
 </html>
