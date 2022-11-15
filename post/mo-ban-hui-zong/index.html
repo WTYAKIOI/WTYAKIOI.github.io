@@ -8,7 +8,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="WTY AK IOI">
 <meta name="theme-color" content="#000">
-<title>P4165 [SCOI2007]组队 题解 | zsq147258369</title>
+<title>模板汇总 | zsq147258369</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1668503404258">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -40,8 +40,8 @@
 
 
 
-  <meta name="description" content="P4165 [SCOI2007]组队 题解" />
-  <meta name="keywords" content="树套树" />
+  <meta name="description" content="模板汇总" />
+  <meta name="keywords" content="" />
 </head>
 
 <body>
@@ -192,7 +192,8 @@
       <div class="sidebar-body gemini" id="sidebar_body">
         
           
-            
+            <div class="post-side-meta" id="post_side_meta">
+              
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="/images/avatar.png"/>
@@ -233,6 +234,203 @@
 
 
 </div>
+            </div>
+            <div class="post-toc sidebar-body-active" id="post_toc" style="opacity: 1;">
+              <div class="toc-box right-motion">
+  <div class="toc-wrapper  auto"
+    id="toc_wrapper">
+    <ul class="markdownIt-TOC">
+<li>
+<ul>
+<li><a href="#splay">splay</a></li>
+<li><a href="#fhq">fhq</a></li>
+<li><a href="#lct">LCT</a></li>
+<li><a href="#%E6%9C%80%E5%A4%A7%E6%B5%81">最大流</a></li>
+<li><a href="#%E8%B4%B9%E7%94%A8%E6%B5%81">费用流</a></li>
+<li><a href="#ntt">NTT</a></li>
+<li><a href="#%E6%9D%9C%E6%95%99%E7%AD%9B">杜教筛</a></li>
+<li><a href="#ac-%E8%87%AA%E5%8A%A8%E6%9C%BA">AC 自动机</a></li>
+<li><a href="#kmp">KMP</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+</div>
+
+<script>
+
+  let lastTop = 0, lList = [], hList = [], postBody, lastIndex = -1;
+  let active = 'active-show', activeClass = 'active-current';
+  let tocWrapper = document.querySelector('#toc_wrapper');
+  let tocContent = tocWrapper.children[0];
+  let autoNumber = tocWrapper && tocWrapper.classList.contains('auto-number');
+
+  function addTocNumber(elem, deep) {
+    if (!elem) {
+      return;
+    }
+    let prop = elem.__proto__;
+
+    if (prop === HTMLUListElement.prototype) {
+      for (let i = 0; i < elem.children.length; i++) {
+        addTocNumber(elem.children[i], deep + (i + 1) + '.');
+      }
+    } else if (prop === HTMLLIElement.prototype) {
+      // 保存li元素
+      if (elem.children[0] && elem.children[0].__proto__ === HTMLAnchorElement.prototype) {
+        lList.push(elem);
+      }
+      for (let i = 0; i < elem.children.length; i++) {
+        let cur = elem.children[i];
+        if (cur.__proto__ === HTMLAnchorElement.prototype) {
+          if (autoNumber) {
+            cur.text = deep + ' ' + cur.text;
+          }
+        } else if (cur.__proto__ === HTMLUListElement.prototype) {
+          addTocNumber(cur, deep);
+        }
+      }
+    }
+  }
+
+  function removeParentActiveClass() {
+    let parents = tocContent.querySelectorAll('.' + active)
+    parents.forEach(function (elem) {
+      elem.classList.remove(active);
+    });
+  }
+
+  function addActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.add(activeClass);
+    }
+  }
+
+  function removeActiveClass(index) {
+    if (index >= 0 && index < hList.length) {
+      lList[index].classList.remove(activeClass);
+    }
+  }
+
+  function addActiveLiElemment(elem, parent) {
+    if (!elem || elem === parent) {
+      return;
+    } else {
+      if (elem.__proto__ === HTMLLIElement.prototype) {
+        elem.classList.add(active);
+      }
+      addActiveLiElemment(elem.parentElement, parent);
+    }
+  }
+
+  function showToc() {
+    if (tocWrapper) {
+      postBody = document.querySelector('#post_body');
+      for (let i = 0; i < postBody.children.length; i++) {
+        if (postBody.children[i].__proto__ === HTMLHeadingElement.prototype) {
+          hList.push(postBody.children[i]);
+        }
+      }
+      if (tocWrapper.classList.contains('compress')) {
+        tocContent.classList.add('closed');
+      } else if (tocWrapper.classList.contains('no_compress')) {
+        tocContent.classList.add('expanded');
+      } else {
+        if (hList.length > 10) {
+          active = 'active-hidden'
+          tocContent.classList.add('closed');
+        } else {
+          tocContent.classList.add('expanded');
+        }
+      }
+    }
+  }
+
+  (function () {
+    // 处理不是从#一级标题开始目录
+    if (tocContent.children.length === 1 && tocContent.children[0].__proto__ === HTMLLIElement.prototype) {
+      let con = tocContent.children[0].children[0];
+      tocContent.innerHTML = con.innerHTML;
+    }
+    let markdownItTOC = document.querySelector('.markdownIt-TOC');
+    let innerHeight = window.innerHeight;
+    markdownItTOC.style = `max-height: ${innerHeight - 80 > 0 ? innerHeight - 80 : innerHeight}px`
+    addTocNumber(tocContent, '');
+  })();
+
+  document.addEventListener('scroll', function (e) {
+    if (lList.length <= 0) {
+      return;
+    }
+    let scrollTop = document.scrollingElement.scrollTop + 10;
+    let dir;
+
+    if (lastTop - scrollTop > 0) {
+      dir = 'up';
+    } else {
+      dir = 'down';
+    }
+
+    lastTop = scrollTop;
+    if (scrollTop <= 0) {
+      if (lastIndex >= 0 && lastIndex < hList.length) {
+        lList[lastIndex].classList.remove(activeClass);
+      }
+      return;
+    }
+
+    let current = 0, hasFind = false;
+    for (let i = 0; i < hList.length; i++) {
+      if (hList[i].offsetTop > scrollTop) {
+        current = i;
+        hasFind = true;
+        break;
+      }
+    }
+    if (!hasFind && scrollTop > lList[lList.length - 1].offsetTop) {
+      current = hList.length - 1;
+    } else {
+      current--;
+    }
+    if (dir === 'down') {
+      if (current > lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex)
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    } else {
+      if (current < lastIndex) {
+        addActiveClass(current);
+        removeActiveClass(lastIndex);
+        lastIndex = current;
+        removeParentActiveClass();
+        lList[current] && addActiveLiElemment(lList[current].parentElement, tocContent);
+      }
+    }
+  });
+
+
+  window.addEventListener('load', function () {
+    showToc();
+    document.querySelector('#sidebar').style = 'display: block;';
+    tocWrapper.classList.add('toc-active');
+    setTimeout(function () {
+      if ("createEvent" in document) {
+        let evt = document.createEvent("HTMLEvents");
+        evt.initEvent("scroll", false, true);
+        document.dispatchEvent(evt);
+      }
+      else {
+        document.fireEvent("scroll");
+      }
+    }, 500)
+  })
+
+</script>
+            </div>
           
         
       </div>
@@ -320,32 +518,21 @@
           <div class="section bg-color post post-page">
             <section class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://wtyakioi.github.io/post/p4165-scoi2007zu-dui-ti-jie/"> P4165 [SCOI2007]组队 题解 </a>
+    <a class="post-title-link" href="https://wtyakioi.github.io/post/mo-ban-hui-zong/"> 模板汇总 </a>
   </h1>
   <div class="post-meta">
     
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span class="publish-time" data-t="2022-10-26 10:39:31">2022-10-26</span>
+      <span class="publish-time" data-t="2022-11-15 08:06:44">2022-11-15</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
     <span class="meta-item">
-      <i class="fa fa-folder-o"></i>
-      <span class="pc-show language" data-lan="category-in">标签:</span>
-       
-      <a href="https://wtyakioi.github.io/tag/h7ozoT6zr/">
-        <span>树套树</span>
-      </a>
-       
-    </span>
-    <span class="post-meta-divider">|</span>
-    
-    <span class="meta-item">
       <i class="fa fa-clock-o"></i>
       <span
-        >5<span class="language" data-lan="minute"
+        >20<span class="language" data-lan="minute"
           >分钟</span
         ></span
       >
@@ -354,7 +541,7 @@
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
       <span
-        >803<span class="pc-show language" data-lan="words"
+        >3199<span class="pc-show language" data-lan="words"
           >字数</span
         ></span
       >
@@ -364,120 +551,837 @@
 </section>
 
             <div class="post-body next-md-body" id="post_body">
-              <figure data-type="image" tabindex="1"><img src="https://img.xjh.me/random_img.php?return=302" alt="" loading="lazy"></figure>
-<!-- more -->
-<p><a href="https://www.luogu.com.cn/problem/P4165"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mstyle mathcolor="deeppink"><mi>l</mi><mi>i</mi><mi>n</mi><mi>k</mi></mstyle></mrow><annotation encoding="application/x-tex">\color{deeppink}link</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.01968em;color:deeppink;">l</span><span class="mord mathdefault" style="color:deeppink;">i</span><span class="mord mathdefault" style="color:deeppink;">n</span><span class="mord mathdefault" style="margin-right:0.03148em;color:deeppink;">k</span></span></span></span></a></p>
-<p><s>考试时 DS 写挂了，导致保龄。。</s></p>
-<p>看到有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>min</mi><mo>⁡</mo></mrow><annotation encoding="application/x-tex">\min</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.66786em;vertical-align:0em;"></span><span class="mop">min</span></span></span></span> 以及只有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>5000</mn></mrow><annotation encoding="application/x-tex">5000</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">5</span><span class="mord">0</span><span class="mord">0</span><span class="mord">0</span></span></span></span> 的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>N</mi></mrow><annotation encoding="application/x-tex">N</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.10903em;">N</span></span></span></span>，可以自然的想到枚举最小值来求答案。</p>
-<p>假设我们枚举的 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mi>i</mi><mi>n</mi><mi>H</mi></mrow><annotation encoding="application/x-tex">minH</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault">i</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.08125em;">H</span></span></span></span> 是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span></span></span></span>，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi><mi>i</mi><mi>n</mi><mi>V</mi></mrow><annotation encoding="application/x-tex">minV</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">m</span><span class="mord mathdefault">i</span><span class="mord mathdefault">n</span><span class="mord mathdefault" style="margin-right:0.22222em;">V</span></span></span></span> 是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>j</mi></mrow><annotation encoding="application/x-tex">j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span></span></span></span> （注意   <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>h</mi><mi>e</mi><mi>i</mi><mi>g</mi><mi>h</mi><msub><mi>t</mi><mi>i</mi></msub><mo>≤</mo><mi>h</mi><mi>e</mi><mi>i</mi><mi>g</mi><mi>h</mi><msub><mi>t</mi><mi>j</mi></msub><mo separator="true">,</mo><mi>s</mi><mi>p</mi><mi>e</mi><mi>e</mi><msub><mi>d</mi><mi>j</mi></msub><mo>≤</mo><mi>s</mi><mi>p</mi><mi>e</mi><mi>e</mi><msub><mi>d</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">height_i\le height_j,speed_j\le speed_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">h</span><span class="mord mathdefault">e</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">h</span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord mathdefault">h</span><span class="mord mathdefault">e</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">h</span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">p</span><span class="mord mathdefault">e</span><span class="mord mathdefault">e</span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">p</span><span class="mord mathdefault">e</span><span class="mord mathdefault">e</span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>），那么如果有一个 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span> 可以被选入，则它满足一下条件：</p>
-<ul>
-<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>s</mi><mi>p</mi><mi>e</mi><mi>e</mi><msub><mi>d</mi><mi>j</mi></msub><mo>≤</mo><mi>s</mi><mi>p</mi><mi>e</mi><mi>e</mi><msub><mi>d</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">speed_j\le speed_k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">p</span><span class="mord mathdefault">e</span><span class="mord mathdefault">e</span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">p</span><span class="mord mathdefault">e</span><span class="mord mathdefault">e</span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></li>
-<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>h</mi><mi>e</mi><mi>i</mi><mi>g</mi><mi>h</mi><msub><mi>t</mi><mi>i</mi></msub><mo>≤</mo><mi>h</mi><mi>e</mi><mi>i</mi><mi>g</mi><mi>h</mi><msub><mi>t</mi><mi>k</mi></msub></mrow><annotation encoding="application/x-tex">height_i\le height_k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">h</span><span class="mord mathdefault">e</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">h</span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">h</span><span class="mord mathdefault">e</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">h</span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></li>
-<li><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mo>(</mo><mi>h</mi><mi>e</mi><mi>i</mi><mi>g</mi><mi>h</mi><msub><mi>t</mi><mi>k</mi></msub><mo>−</mo><mi>h</mi><mi>e</mi><mi>i</mi><mi>g</mi><mi>h</mi><msub><mi>t</mi><mi>i</mi></msub><mo>)</mo><mo>+</mo><mi>B</mi><mo>(</mo><mi>s</mi><mi>p</mi><mi>e</mi><mi>e</mi><msub><mi>d</mi><mi>k</mi></msub><mo>−</mo><mi>s</mi><mi>p</mi><mi>e</mi><mi>e</mi><msub><mi>d</mi><mi>j</mi></msub><mo>)</mo><mo>≤</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">A(height_k-height_i)+B(speed_k-speed_j)\le C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">A</span><span class="mopen">(</span><span class="mord mathdefault">h</span><span class="mord mathdefault">e</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">h</span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault">h</span><span class="mord mathdefault">e</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">h</span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mopen">(</span><span class="mord mathdefault">s</span><span class="mord mathdefault">p</span><span class="mord mathdefault">e</span><span class="mord mathdefault">e</span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">p</span><span class="mord mathdefault">e</span><span class="mord mathdefault">e</span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span></span></span></span></li>
-</ul>
-<p>我们尝试把第三个化简一下：</p>
-<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mo>∗</mo><mi>h</mi><mi>e</mi><mi>i</mi><mi>g</mi><mi>h</mi><msub><mi>t</mi><mi>k</mi></msub><mo>+</mo><mi>B</mi><mo>∗</mo><mi>s</mi><mi>p</mi><mi>e</mi><mi>e</mi><msub><mi>d</mi><mi>k</mi></msub><mo>−</mo><mi>A</mi><mo>∗</mo><mi>s</mi><mi>p</mi><mi>e</mi><mi>e</mi><msub><mi>d</mi><mi>i</mi></msub><mo>−</mo><mi>B</mi><mo>∗</mo><mi>s</mi><mi>p</mi><mi>e</mi><mi>e</mi><msub><mi>d</mi><mi>j</mi></msub><mo>≤</mo><mi>C</mi></mrow><annotation encoding="application/x-tex">A*height_k+B*speed_k-A*speed_i-B*speed
-_j\le C</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">A</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">h</span><span class="mord mathdefault">e</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">h</span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">p</span><span class="mord mathdefault">e</span><span class="mord mathdefault">e</span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">A</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">p</span><span class="mord mathdefault">e</span><span class="mord mathdefault">e</span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">p</span><span class="mord mathdefault">e</span><span class="mord mathdefault">e</span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span></span></span></span></span></p>
-<p class='katex-block'><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>A</mi><mo>∗</mo><mi>h</mi><mi>e</mi><mi>i</mi><mi>g</mi><mi>h</mi><msub><mi>t</mi><mi>k</mi></msub><mo>+</mo><mi>B</mi><mo>∗</mo><mi>s</mi><mi>p</mi><mi>e</mi><mi>e</mi><msub><mi>d</mi><mi>k</mi></msub><mo>≤</mo><mi>C</mi><mo>+</mo><mi>A</mi><mo>∗</mo><mi>s</mi><mi>p</mi><mi>e</mi><mi>e</mi><msub><mi>d</mi><mi>i</mi></msub><mo>+</mo><mi>B</mi><mo>∗</mo><mi>s</mi><mi>p</mi><mi>e</mi><mi>e</mi><msub><mi>d</mi><mi>j</mi></msub></mrow><annotation encoding="application/x-tex">A*height_k+B*speed_k\le C+A*speed_i+B*speed
-_j</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">A</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">h</span><span class="mord mathdefault">e</span><span class="mord mathdefault">i</span><span class="mord mathdefault" style="margin-right:0.03588em;">g</span><span class="mord mathdefault">h</span><span class="mord"><span class="mord mathdefault">t</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">p</span><span class="mord mathdefault">e</span><span class="mord mathdefault">e</span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.33610799999999996em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.03148em;">k</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.76666em;vertical-align:-0.08333em;"></span><span class="mord mathdefault" style="margin-right:0.07153em;">C</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault">A</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8888799999999999em;vertical-align:-0.19444em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">p</span><span class="mord mathdefault">e</span><span class="mord mathdefault">e</span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.05017em;">B</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.980548em;vertical-align:-0.286108em;"></span><span class="mord mathdefault">s</span><span class="mord mathdefault">p</span><span class="mord mathdefault">e</span><span class="mord mathdefault">e</span><span class="mord"><span class="mord mathdefault">d</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span></span></span></span></span></p>
-<p>可以看到，后面值已经确定，前面的值只与 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>k</mi></mrow><annotation encoding="application/x-tex">k</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathdefault" style="margin-right:0.03148em;">k</span></span></span></span> 有关。</p>
-<p>把三个限定条件摆到一起：这不就是 <a href="https://www.luogu.com.cn/problem/P3810">三维偏序</a> 吗？剩下的都是板子。写什么都行，可就我写的是线段树套线段树，跑得贼慢。</p>
-<pre><code>#include&lt;bits/stdc++.h&gt;
-#define int long long
+              <h2 id="splay">splay</h2>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
 using namespace std;
-const int N=5e3+350,M=1e4,I=1e6+500;
+const int N=3e5+500,inf=1e9+7;
 
-struct node
+int T,ch[N][2],siz[N],val[N],fa[N],ro,tot,cnt[N];
+
+#define ls ch[x][0]
+#define rs ch[x][1]
+
+void up(int x)
 {
-	int h,s;
-	
-	friend bool operator&lt;(node a,node b)
+	siz[x]=siz[ls]+siz[rs]+cnt[x];
+}
+
+void rotate(int x)
+{
+	int y=fa[x],z=fa[y],k=(ch[y][1]==x),q=(ch[z][1]==y),an=ch[x][k^1];
+	if(z)ch[z][q]=x;ch[y][k]=an;ch[x][k^1]=y;
+	if(an)fa[an]=y;fa[x]=z;fa[y]=x;
+	up(y),up(x);
+}
+
+void splay(int x,int g)
+{
+	while(fa[x]!=g)
 	{
-		return a.h==b.h?a.s&gt;b.s:a.h&lt;b.h;
+		int y=fa[x],z=fa[y];
+		if(z!=g)rotate(((ch[z][1]==y)^(ch[y][1]==x))?x:y);
+		rotate(x);
 	}
-}a[N];
-
-int n,ans,jk,tot,ls[I],rs[I],val[I];
-int A,B,C,re[N],o[N];
-map&lt;int,int&gt;mp;
-
-class tree_and_tree
-{
-	public:
-		int ro;
-		
-		#define mid ((l+r)&gt;&gt;1)
-		
-		void pre(int&amp;x){x=++tot;}
-		
-		void insert(int x,int l,int r,int t)
-		{
-			val[x]++;
-			if(l==r)return;
-			if(!ls[x])pre(ls[x]);
-			if(!rs[x])pre(rs[x]);
-			if(t&lt;=mid)insert(ls[x],l,mid,t);
-			else insert(rs[x],mid+1,r,t);
-			return;
-		}
-		
-		int query(int x,int l,int r,int L,int R)
-		{
-			if(L&gt;R)return 0;
-			if(!x)return 0;
-			if(L&lt;=l&amp;&amp;R&gt;=r)return val[x];
-			int ans=0;
-			if(L&lt;=mid)ans+=query(ls[x],l,mid,L,R);
-			if(R&gt;mid)ans+=query(rs[x],mid+1,r,L,R);
-			return ans;
-		}
-}t[M&lt;&lt;3];
-
-int find(int x,int l,int r,int L,int R,int y)
-{
-	if(L&lt;=l&amp;&amp;R&gt;=r)return t[x].query(t[x].ro,1,jk,1,y);
-	int tmid=(l+r)&gt;&gt;1,ans=0;
-	if(L&lt;=tmid)ans+=find(x&lt;&lt;1,l,tmid,L,R,y);
-	if(R&gt;tmid)ans+=find(x&lt;&lt;1|1,tmid+1,r,L,R,y);
-	return ans;
+	if(!g)ro=x;
 }
 
-int get(int mins,int mxre)
+void add(int x)
 {
-	int l=upper_bound(o+1,o+1+jk,mxre)-o-1;
-	return find(1,1,M,mins,M,l);
+	int u=ro,f=0;
+	while(u&amp;&amp;val[u]!=x)f=u,u=ch[u][x&gt;val[u]];
+	if(u)++cnt[u];
+	else
+	{
+		u=++tot;
+		if(f)ch[f][x&gt;val[f]]=u;
+		fa[u]=f;val[u]=x;
+		siz[u]=cnt[u]=1;
+	}
+	splay(u,0);
 }
 
-void insert(int x,int l,int r,int a,int b)
+void find(int x)
 {
-	t[x].insert(t[x].ro,1,jk,b);
-	if(l==r)return;
-	int tmid=(l+r)&gt;&gt;1;
-	if(a&lt;=tmid)insert(x&lt;&lt;1,l,tmid,a,b);
-	else insert(x&lt;&lt;1|1,tmid+1,r,a,b);
+	int u=ro;
+	if(!u)return;
+	while(ch[u][x&gt;val[u]]&amp;&amp;x!=val[u])u=ch[u][x&gt;val[u]];
+	splay(u,0);
+}
+
+int rk(int x,int f)
+{
+	find(x);
+	int u=ro;
+	if(val[u]&gt;x&amp;&amp; f)return u;
+	if(val[u]&lt;x&amp;&amp;!f)return u;
+	u=ch[u][f];
+	while(ch[u][f^1])u=ch[u][f^1];
+	return u;
+}
+
+void del(int x)
+{
+	int la=rk(x,0),nx=rk(x,1);
+	splay(la,0),splay(nx,la);
+	int u=ch[nx][0];
+	--cnt[u];
+	if(!cnt[u])ch[nx][0]=0;
+	else splay(u,0);
+}
+
+int get_rk(int x)
+{
+	int u=ro;x++;
+	if(siz[u]&lt;x)return 0;
+	while(1)
+	{
+		int y=ch[u][0];
+		if(x&gt;siz[y]+cnt[u])x-=siz[y]+cnt[u],u=ch[u][1];
+		else
+		{
+			if(x&gt;siz[y])return val[u];
+			u=y;
+		}
+	}
 }
 
 main()
 {
-	for(int i=1;i&lt;=(M&lt;&lt;2);i++)t[i].ro=++tot;
-	cin&gt;&gt;n&gt;&gt;A&gt;&gt;B&gt;&gt;C;
-	for(int i=1;i&lt;=n;i++)cin&gt;&gt;a[i].h&gt;&gt;a[i].s;sort(a+1,a+1+n);
-	for(int i=1;i&lt;=n;i++)re[i]=(A*a[i].h+B*a[i].s)-C,o[i]=re[i];
-	sort(o+1,o+1+n);jk=unique(o+1,o+1+n)-o-1;
-	for(int i=1;i&lt;=jk;i++)mp[o[i]]=i;
-	for(int i=n;i&gt;=1;i--)//minH
+	cin&gt;&gt;T;
+	add(-inf),add(inf);
+	while(T--)
 	{
-		insert(1,1,M,a[i].s,mp[re[i]]);
-		for(int j=i;j&lt;=n;j++)//minS
-		if(a[j].s&lt;=a[i].s)
+		int opt,x;
+		cin&gt;&gt;opt&gt;&gt;x;
+		switch(opt)
 		{
-			int p=A*a[i].h+B*a[j].s;
-			if((re[i]&gt;p)||(re[j]&gt;p))continue;
-			int x=get(a[j].s,p);
-			ans=max(ans,x);
+			case 1:
+				add(x);
+				break;
+			case 2:
+				del(x);
+				break;
+			case 3:
+				find(x);
+				cout&lt;&lt;siz[ch[ro][0]]&lt;&lt;'\n';
+				break;
+			case 4:
+				cout&lt;&lt;get_rk(x)&lt;&lt;'\n';
+				break;
+			case 5:
+				cout&lt;&lt;val[rk(x,0)]&lt;&lt;'\n';
+				break;
+			case 6:
+				cout&lt;&lt;val[rk(x,1)]&lt;&lt;'\n';
+				break;
+		}
+	}
+}
+</code></pre>
+<h2 id="fhq">fhq</h2>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+const int N=1e6+500;
+
+class fhq
+{
+	public:
+		int ch[N][2],v[N],siz[N],rd[N],ro,tot;
+		#define ls ch[x][0]
+		#define rs ch[x][1]
+		
+		inline void up(int x){siz[x]=siz[ls]+siz[rs]+1;}
+		
+		inline int make_new(int val)
+		{
+			int x=++tot;
+			v[x]=val;
+			siz[x]=1;
+			rd[x]=rand();
+			return x;
+		}
+		
+		inline void split(int x,int k,int&amp;a,int&amp;b)
+		{
+			if(!x)a=b=0;
+			else
+			{
+				if(v[x]&lt;=k)a=x,split(rs,k,rs,b);
+				else b=x,split(ls,k,a,ls);
+				up(x);
+			}
+		}
+		
+		inline int merge(int a,int b)
+		{
+			if(!a||!b)return a+b;
+			if(rd[a]&lt;rd[b])
+			{
+				ch[a][1]=merge(ch[a][1],b);
+				up(a);return a;
+			}
+			else
+			{
+				ch[b][0]=merge(a,ch[b][0]);
+				up(b);return b;
+			}
+		}
+		
+		inline void add(int x)
+		{
+			int a=0,b=0;
+			split(ro,x,a,b);int k=make_new(x);
+			ro=merge(merge(a,k),b);
+		}
+		
+		inline void del(int x)
+		{
+			int a=0,b=0,c=0;
+			split(ro,x,a,b);
+			split(a,x-1,a,c);
+			c=merge(ch[c][0],ch[c][1]);
+			ro=merge(merge(a,c),b);
+		}
+		
+		inline int rk(int x,int k)
+		{
+			while(1)
+			{
+				if(siz[ls]+1&lt;k)k-=siz[ls]+1,x=rs;
+				else
+				{
+					if(siz[ls]&lt;k)return x;
+					x=ls;
+				}
+			}
+		}
+		
+		inline int the_rk_of(int x)
+		{
+			int a=0,b=0,ans;
+			split(ro,x-1,a,b);
+			ans=siz[a]+1;
+			ro=merge(a,b);
+			return ans;
+		}
+		
+		inline int pre(int x)
+		{
+			int a=0,b=0,ans;
+			split(ro,x-1,a,b);
+			ans=v[rk(a,siz[a])];
+			ro=merge(a,b);
+			return ans;
+		}
+		
+		inline int las(int x)
+		{
+			int a=0,b=0,ans;
+			split(ro,x,a,b);
+			ans=v[rk(b,1)];
+			ro=merge(a,b);
+			return ans;
+		}
+}A;
+
+int n;
+
+char ch,B0[1&lt;&lt;15],*S=B0,*T=B0;
+#define getc() (S==T&amp;&amp;(T=(S=B0)+fread(B0,1,1&lt;&lt;15,stdin),S==T)?0:*S++)
+int aa,f;inline int read(){
+	f=0;while(ch=getc(),ch&lt;'0'||ch&gt;'9')f=(ch=='-');aa=ch-'0';
+	while(ch=getc(),ch&gt;='0'&amp;&amp;ch&lt;='9')aa=aa*10+ch-'0';return f?-aa:aa;
+}
+
+inline void write(int x)
+{
+	if(x&lt;0)putchar('-'),x=-x;
+	if(x&gt;9)write(x/10);
+	putchar(x%10+'0');
+	return;
+}
+
+main()
+{
+	srand(time(0));
+	n=read();
+	while(n--)
+	{
+		int opt=read(),x=read();
+		if(opt==1)A.add(x);
+		else if(opt==2)A.del(x);
+		else if(opt==3)write(A.the_rk_of(x)),puts(&quot;&quot;);
+		else if(opt==4)write(A.v[A.rk(A.ro,x)]),puts(&quot;&quot;);
+		else if(opt==5)write(A.pre(x)),puts(&quot;&quot;);
+		else write(A.las(x)),puts(&quot;&quot;);
+	}
+}
+</code></pre>
+<h2 id="lct">LCT</h2>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+const int N=2e6+500;
+
+int v[N],s[N],ch[N][2],rev[N],f[N];
+
+#define ls ch[x][0]
+#define rs ch[x][1]
+
+int isroot(int x){return ch[f[x]][0]==x|ch[f[x]][1]==x;}//rev 0,1
+void up(int x){s[x]=s[ls]^s[rs]^v[x];}
+void reversal(int x){swap(ls,rs);rev[x]^=1;}
+void down(int x){if(!rev[x])return;reversal(ls),reversal(rs);rev[x]=0;}
+void rotate(int x)
+{
+	int y=f[x],z=f[y],k=(ch[y][1]==x),w=(ch[z][1]==y),an=ch[x][k^1];
+	if(isroot(y))ch[z][w]=x;ch[x][k^1]=y;ch[y][k]=an;
+	if(an)f[an]=y;f[y]=x,f[x]=z;
+	up(y);up(x);
+}
+
+int st[N];
+
+void splay(int x)
+{
+	int y=x,z=0;
+	st[++z]=x;
+	while(isroot(y))st[++z]=y=f[y];
+	while(z)down(st[z--]);
+	while(isroot(x))
+	{
+		y=f[x],z=f[y];
+		if(isroot(y))rotate((ch[y][1]==x)^(ch[z][1]==y)?x:y);
+		rotate(x);
+	}
+	up(x);
+}
+
+void access(int x){for(int y=0;x;x=f[y=x])splay(x),rs=y,up(x);}
+void make_root(int x){access(x);splay(x);reversal(x);}
+int find_root(int x){access(x);splay(x);while(ls)down(x),x=ls;splay(x);return x;}
+void split(int x,int y){make_root(x);access(y);splay(y);}
+void link(int x,int y){make_root(x);if(find_root(y)!=x)f[x]=y;}
+void cut(int x,int y){make_root(x);if(find_root(y)==x&amp;&amp;f[y]==x&amp;&amp;!ch[y][0])f[y]=rs=0,up(x);}
+
+int n,m;
+
+char cch,B0[1&lt;&lt;15],*S=B0,*T=B0;
+#define getc() (S==T&amp;&amp;(T=(S=B0)+fread(B0,1,1&lt;&lt;15,stdin),S==T)?0:*S++)
+int aa;int read(){
+	while(cch=getc(),cch&lt;'0'||cch&gt;'9');aa=cch-'0';
+	while(cch=getc(),cch&gt;='0'&amp;&amp;cch&lt;='9')aa=((aa&lt;&lt;3)+(aa&lt;&lt;1))+cch-'0';return aa;
+}
+
+main()
+{
+	n=read(),m=read();
+	for(int i=1;i&lt;=n;i++)v[i]=read();
+	int opt,x,y;
+	while(m--)
+	{
+		opt=read(),x=read(),y=read();
+    	if(opt==0)split(x,y),printf(&quot;%ld\n&quot;,s[y]);
+		if(opt==1)link(x,y);
+		if(opt==2)cut(x,y);
+		if(opt==3)make_root(x),v[x]=y;
+	}
+}
+</code></pre>
+<p>##二分图</p>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+const int N=505,M=50005;
+
+struct node
+{
+	int v,nxt;
+}ed[M];
+
+int girl[N],ans,n,m,e;
+int head[N],cnt;
+bool used[N];
+
+void add(int u,int v)
+{
+	ed[++cnt].v=v;
+	ed[cnt].nxt=head[u];
+	head[u]=cnt;
+}
+
+int find(int now)
+{
+	for(int i=head[now];i;i=ed[i].nxt)
+	{
+		int v=ed[i].v;
+		if(!used[v])
+		{
+			used[v]=1;
+			if(!girl[v]||find(girl[v]))
+			{
+				girl[v]=now;
+				return 1;
+			}
+		}
+	}
+	return 0;
+}
+
+main()
+{
+	cin&gt;&gt;n&gt;&gt;m&gt;&gt;e;
+	for(int i=1;i&lt;=e;i++)
+	{
+		int u,v;
+		cin&gt;&gt;u&gt;&gt;v;
+		add(u,v);
+	}
+	for(int i=1;i&lt;=n;i++)
+	{
+		memset(used,0,sizeof(used));
+		if(find(i))
+		ans++;
+	}
+	cout&lt;&lt;ans;
+}
+</code></pre>
+<h2 id="最大流">最大流</h2>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+#define int long long
+using namespace std;
+const int N=7e2+20,M=2e4+500,inf=1e17+7;
+
+struct node
+{
+	int u,v,w,nxt;
+}e[M];
+
+int n,m,head[N],cnt=1,st,ed,ans,dep[N],cur[N];
+
+char ch,B0[1&lt;&lt;15],*S=B0,*T=B0;
+#define getc() (S==T&amp;&amp;(T=(S=B0)+fread(B0,1,1&lt;&lt;15,stdin),S==T)?0:*S++)
+int aa;int read(){
+	while(ch=getc(),ch&lt;'0'||ch&gt;'9');aa=ch-'0';
+	while(ch=getc(),ch&gt;='0'&amp;&amp;ch&lt;='9')aa=aa*10+ch-'0';return aa;
+}
+
+void add(int u,int v,int w)
+{
+	e[++cnt]=(node){u,v,w,head[u]};head[u]=cnt;
+	e[++cnt]=(node){v,u,0,head[v]};head[v]=cnt;
+}
+
+void read_add_edge()
+{
+	n=read(),m=read(),st=read(),ed=read();
+	for(int i=1,u,v,w;i&lt;=m;i++)
+	{
+		u=read(),v=read(),w=read();
+		if(w&lt;=0)continue;
+		add(u,v,w);
+	}
+}
+
+int bfs()
+{
+	queue&lt;int&gt;q;
+	for(int i=1;i&lt;=ed;i++)dep[i]=0;
+	dep[st]=1,q.push(st);
+	while(!q.empty())
+	{
+		int u=q.front();q.pop();
+		for(int i=head[u];i;i=e[i].nxt)
+		{
+			int v=e[i].v;
+			if(!dep[v]&amp;&amp;e[i].w&gt;0)
+			{
+				q.push(v);
+				dep[v]=dep[u]+1;
+			}
+		}
+	}
+	return dep[ed];
+}
+
+int dfs(int now,int flow)
+{
+	if(now==ed||!flow)return flow;
+	int res=0;
+	for(int &amp;i=cur[now];i;i=e[i].nxt)
+	{
+		int v=e[i].v;	
+		if(dep[v]==dep[now]+1&amp;&amp;e[i].w&gt;0)
+		{
+			int x=dfs(v,min(flow-res,e[i].w));
+			if(x&gt;0)
+			{
+				e[i].w-=x;
+				e[i^1].w+=x;
+				res+=x;
+				if(flow==res)return res;
+			}
+		}
+	}
+	return res;
+}
+
+void dinic()
+{
+	while(bfs()&gt;0)
+	{
+		for(int i=1;i&lt;=ed;i++)
+		cur[i]=head[i];
+		ans+=dfs(st,inf);
+	}
+}
+
+void print()
+{
+	cout&lt;&lt;ans;
+}
+
+main()
+{
+	read_add_edge();
+	dinic();
+	print();
+}
+</code></pre>
+<h2 id="费用流">费用流</h2>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+const int N=2e4+500,M=3e5+500,inf=1e9+7;
+
+struct node
+{
+	int u,v,w,c,nxt;
+}e[M];
+
+int n,m,head[N],cnt=1,st,ed;
+
+void add(int u,int v,int w,int c)
+{
+	e[++cnt].u=u;
+	e[cnt].v=v;
+	e[cnt].w=w;
+	e[cnt].c=c;
+	e[cnt].nxt=head[u];
+	head[u]=cnt;
+}
+
+void read()
+{
+	cin&gt;&gt;n&gt;&gt;m&gt;&gt;st&gt;&gt;ed;
+	for(int i=1;i&lt;=m;i++)
+	{
+		int u,v,w,c;
+		cin&gt;&gt;u&gt;&gt;v&gt;&gt;w&gt;&gt;c;
+		add(u,v,w,c);
+		add(v,u,0,-c);
+	}
+}
+
+int vis[N],mincost,maxflow,dep[N];
+
+int spfa()
+{
+	deque&lt;int&gt;q;
+	for(int i=1;i&lt;=n;i++)vis[i]=0,dep[i]=inf;
+	q.push_back(ed);vis[ed]=1;dep[ed]=0;
+	while(!q.empty())
+	{
+		int x=q.front();q.pop_front();vis[x]=0;
+		for(int i=head[x];i;i=e[i].nxt)
+		{
+			int v=e[i].v;
+			if(e[i^1].w&gt;0&amp;&amp;dep[v]&gt;dep[x]-e[i].c)
+			{
+				dep[v]=dep[x]-e[i].c;
+				if(!vis[v])
+				{
+					vis[v]=1;
+					if(!q.empty()&amp;&amp;dep[v]&lt;dep[q.front()])q.push_front(v);
+					else q.push_back(v);
+				}
+			}
+		}
+	}
+	return dep[st]&lt;inf;
+}
+
+int dfs(int now,int flow)
+{
+	vis[now]=1;
+	if(now==ed||flow&lt;=0)return flow;
+	int res=0;
+	for(int i=head[now];i;i=e[i].nxt)
+	{
+		int v=e[i].v;
+		if(!vis[v]&amp;&amp;e[i].w&amp;&amp;dep[now]-e[i].c==dep[v])
+		{
+			int d=dfs(v,min(flow-res,e[i].w));
+			if(d&lt;=0)continue;
+			e[i].w-=d,e[i^1].w+=d;
+			res+=d,mincost+=d*e[i].c;
+			if(res==flow)return res;
+		}
+	}
+	return res;
+}
+
+void zkw()
+{
+	while(spfa())
+	{
+		vis[ed]=1;
+		while(vis[ed])
+		{
+			for(int i=1;i&lt;=n;i++)vis[i]=0;
+			maxflow+=dfs(st,inf);
+		}
+	}
+}
+
+void print()
+{
+	cout&lt;&lt;maxflow&lt;&lt;' '&lt;&lt;mincost;
+}
+
+main()
+{
+	read();
+	zkw();
+	print();
+}
+</code></pre>
+<h2 id="ntt">NTT</h2>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+#define int long long
+using namespace std;
+const int N=3e6+500,mod=998244353;
+
+int a[N],b[N],n,m,g=3,fg,len=2,to[N],k=1,inv;
+
+int ksm(int a,int b)
+{
+	int ans=1;
+	while(b)
+	{
+		if(b&amp;1)ans=ans*a%mod;
+		b&gt;&gt;=1;
+		a=a*a%mod;
+	}
+	return ans;
+}
+
+void NTT(int*a,int f)
+{
+	for(int i=0;i&lt;len;i++)if(i&lt;to[i])
+	swap(a[i],a[to[i]]);
+	for(int i=1;i&lt;len;i&lt;&lt;=1)
+	{
+		int gn=ksm(f==1?g:fg,(mod-1)/(i&lt;&lt;1));
+		for(int j=0;j&lt;len;j+=(i&lt;&lt;1))
+		{
+			int g=1;
+			for(int k=j;k&lt;j+i;k++)
+			{
+				int x=a[k],y=g*a[i+k]%mod;
+				a[k]=(x+y)%mod;
+				a[i+k]=(x-y+mod)%mod;
+				g=g*gn%mod;
+			}
+		}
+	}
+}
+
+main()
+{
+	fg=ksm(g,mod-2);
+	cin&gt;&gt;n&gt;&gt;m;
+	for(int i=0;i&lt;=n;i++)cin&gt;&gt;a[n-i];
+	for(int i=0;i&lt;=m;i++)cin&gt;&gt;b[m-i];
+	while(len&lt;=n+m)len&lt;&lt;=1,k++;
+	for(int i=0;i&lt;len;i++)
+	to[i]=(to[i&gt;&gt;1]&gt;&gt;1)|((i&amp;1)&lt;&lt;(k-1));
+	NTT(a,1),NTT(b,1);
+	for(int i=0;i&lt;len;i++)a[i]=a[i]*b[i]%mod;
+	NTT(a,0);
+	inv=ksm(len,mod-2);
+	for(int i=n+m;i&gt;=0;i--)cout&lt;&lt;(a[i]*inv)%mod&lt;&lt;' ';
+}
+</code></pre>
+<h2 id="杜教筛">杜教筛</h2>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+#define ll long long
+#define int long long
+const int N=5*1e6+10;
+ll n,m,T,p[N],tot,vis[N];
+ll mul[N],f[N],sum[N],phi[N];
+ll Mul[N],Phi[N];
+map&lt;int, ll &gt; spha;
+map&lt;int, ll &gt; smul;
+
+inline void phigros(){
+	mul[1]=1;
+	phi[1]=1;
+	for(int i=2;i&lt;=N;i++){
+		if(!vis[i]){
+			p[++tot]=i;
+			mul[i]=-1;
+			phi[i]=i-1;
+		}
+		for(int j=1;j&lt;=tot&amp;&amp;i*p[j]&lt;=N;j++){
+			vis[i*p[j]]=1;
+			if(i%p[j]==0){
+				phi[i*p[j]]=phi[i]*p[j];
+				break;
+			}
+			mul[i*p[j]]=-mul[i];
+			phi[i*p[j]]=phi[i]*(p[j]-1);
+		}
+	}
+	for(int i=1;i&lt;=N;i++){
+		Mul[i]=Mul[i-1]+mul[i];
+		Phi[i]=Phi[i-1]+phi[i];
+	}
+}
+
+inline ll pha(int x){
+	if(x&lt;=N) return Phi[x];
+	if(spha[x]) return spha[x];
+	ll ans=(1ll*x+1)*(1ll*x)/2;
+	for(ll i=2,j;i&lt;=x;i=j+1){
+		j=x/(x/i);
+		ans-=(j-i+1)*pha(x/i);
+	}
+	return spha[x]=ans;
+}
+
+inline int mu(int x){
+	if(x&lt;=N) return Mul[x];
+	if(smul[x]) return smul[x];
+	ll ans=1;
+	for(int i=2,j;i&lt;=x;i=j+1){
+		j=x/(x/i);
+		ans-=(j-i+1)*mu(x/i);
+	}
+	return smul[x]=ans;
+}
+
+main(){
+	scanf(&quot;%lld&quot;,&amp;T);
+	phigros();
+	while(T--){
+		scanf(&quot;%d&quot;,&amp;n);
+		printf(&quot;%lld %d\n&quot;,pha(n),mu(n));
+	}
+	return 0;
+}
+</code></pre>
+<h2 id="ac-自动机">AC 自动机</h2>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+const int N=1e6+9;
+
+int tree[N][27],book[N],fail[N],tot,n;
+string s;
+
+void build_tree(string s)
+{
+	int p=0;
+	for(int i=0;i&lt;s.size();i++)
+	{
+		int a=s[i]-'a';
+		if(!tree[p][a])
+		tree[p][a]=++tot;
+		p=tree[p][a];
+	}
+	book[p]++;
+}
+
+void get_fail()
+{
+	queue&lt;int&gt;q;
+
+	for(int i=0;i&lt;26;i++)
+	if(tree[0][i])
+	q.push(tree[0][i]);
+
+	while(!q.empty())
+	{
+		int now=q.front();
+		q.pop();
+		for(int i=0;i&lt;26;i++)
+		{
+			if(tree[now][i])
+			{
+				q.push(tree[now][i]);
+				fail[tree[now][i]]=tree[fail[now]][i];
+			}
+			else
+				tree[now][i]=tree[fail[now]][i];
+		}
+	}
+}
+
+void AC(string s)
+{
+	int now=0,ans=0;
+	for(int i=0;i&lt;s.size();i++)
+	{
+		now=tree[now][s[i]-'a'];
+		for(int j=now;j&amp;&amp;book[j]!=-1;j=fail[j])
+		{
+			ans+=book[j];
+			book[j]=-1;
 		}
 	}
 	cout&lt;&lt;ans;
+	return;
+}
+
+main()
+{
+	cin&gt;&gt;n;
+	for(int i=1;i&lt;=n;i++)
+	{
+		cin&gt;&gt;s;
+		build_tree(s);
+	}
+
+	get_fail();
+
+	cin&gt;&gt;s;
+	AC(s);
+}
+</code></pre>
+<h2 id="kmp">KMP</h2>
+<pre><code class="language-cpp">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+const int N=2e6+500;
+
+int nxt[N],l1,l2;
+char s[N],c[N];
+
+main()
+{
+	cin&gt;&gt;(c+1)&gt;&gt;(s+1);
+	l1=strlen(c+1),l2=strlen(s+1);
+	nxt[1]=0;
+	for(int i=2,j=0;i&lt;=l2;i++)
+	{
+		while(j&amp;&amp;s[j+1]!=s[i])j=nxt[j];
+		if(s[j+1]==s[i])j++;
+		nxt[i]=j;
+	}
+	for(int i=1,j=0;i&lt;=l1;i++)
+	{
+		while(j&amp;&amp;s[j+1]!=c[i])j=nxt[j];
+		if(s[j+1]==c[i])j++;
+		if(j==l2)cout&lt;&lt;i-l2+1&lt;&lt;'\n';
+	}
+	for(int i=1;i&lt;=strlen(s+1);i++)cout&lt;&lt;nxt[i]&lt;&lt;' ';
 }
 </code></pre>
 
@@ -492,7 +1396,7 @@ main()
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://wtyakioi.github.io/post/p4165-scoi2007zu-dui-ti-jie/" title="P4165 [SCOI2007]组队 题解">https://wtyakioi.github.io/post/p4165-scoi2007zu-dui-ti-jie/</a>
+      <a href="https://wtyakioi.github.io/post/mo-ban-hui-zong/" title="模板汇总">https://wtyakioi.github.io/post/mo-ban-hui-zong/</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -501,22 +1405,12 @@ main()
   </ul>
   <div class="tags">
     
-      <a href="https://wtyakioi.github.io/tag/h7ozoT6zr/"># 树套树</a>
-    
   </div>
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="CF827D Best Edge Weight 题解" href="https://wtyakioi.github.io/post/cf827d-best-edge-weight-ti-jie/">CF827D Best Edge Weight 题解</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="CF827D Best Edge Weight 题解" href="https://wtyakioi.github.io/post/cf827d-best-edge-weight-ti-jie/">上一篇</a>
-      
     </div>
     <div class="nav-next">
-      
-        <a class="nav-pc-next" title="P8439 Altale(FTR 9+) 题解" href="https://wtyakioi.github.io/post/p8439-altaleftr-9-ti-jie/">P8439 Altale(FTR 9+) 题解</a>
-        <a class="nav-mobile-next" title="P8439 Altale(FTR 9+) 题解" href="https://wtyakioi.github.io/post/p8439-altaleftr-9-ti-jie/">下一篇</a>
-        <i class="fa fa-chevron-right"></i>
       
     </div>
   </div>
